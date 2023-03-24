@@ -19,6 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  vender: {
+    type: Boolean,
+    required: true
+  },
 });
 
 // set up pre-save middleware to create password
