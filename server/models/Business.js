@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const Product = require('./Product');
 
 const businessSchema = new Schema({
   name: {
