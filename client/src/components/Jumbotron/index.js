@@ -1,4 +1,6 @@
 import React from "react";
+// Import style.css to include tailwind directives
+import './style.css';
 
 function Jumbotron({ children }) {
   return (
