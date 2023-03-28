@@ -1,7 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const Business = require('./Business');
-
 const productSchema = new Schema({
   name: {
     type: String,
