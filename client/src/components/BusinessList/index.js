@@ -7,27 +7,28 @@ import './style.css';
 
 function BusinessList() {
 
+  
 
-    return (
-        <div>
-            <h2>Bexar Market Businesss</h2>
-            {state.businesses.length ? (
-                <div className="flex-row">
-                    {filterBusinesses().map((business) => (
-                        <Business
-                            key={business._id}
-                            _id={business._id}
-                            image={business.image}
-                            name={business.name}
-                            catagory={business.catagory}
-                            description={business.description}
-                        />
-          ))}
-        </div>
-      ) : (
-        <h3>All our businesses have been deleted! Help!</h3>
-      )}
-        </div>
+  return (
+    <div>
+      <h2>Bexar Market Businesss</h2>
+        {state.businesses.length ? (
+          <div className="flex-row">
+            {filterBusinesses().map((business) => (
+              <Business
+                key={business._id}
+                _id={business._id}
+                image={business.image}
+                name={business.name}
+                catagory={business.catagory}
+                description={business.description}
+              />
+            ))}
+      </div>
+        ) : (
+          <h3>All our businesses have been deleted! Help!</h3>
+        )}
+      </div>
     )
 }
 
