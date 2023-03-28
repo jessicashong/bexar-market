@@ -48,6 +48,7 @@ const typeDefs = gql`
   }
 
   input BusinessInput {
+    _id: ID!
     name: String
     description: String
     image: String
@@ -67,10 +68,10 @@ const typeDefs = gql`
     addUser(userName: String!, email: String!, password: String!): Auth
     updateUser(userName: String, email: String, password: String): User
     addProduct(product: ProductInput): Business
-    updateProduct(productId: ID!, quantity: Int!): Business
-    deleteproduct(productId: ID!): Business
+    updateProduct(product: ProductInput): Business
+    deleteProduct(productId: ID!): Business
     addBusiness(business: BusinessInput): Business
-    updateBusiness(_id: ID!, business: BusinessInput): Business
+    updateBusiness(business: BusinessInput): Business
     login(email: String!, password: String!): Auth
   }
 `;
