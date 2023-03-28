@@ -1,5 +1,5 @@
 const User = require('./User');
-const Business = require('./Business')
+const Business = require('./Business');
 const Product = require('./Product');
 const Category = require('./Category');
 
