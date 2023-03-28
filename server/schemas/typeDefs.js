@@ -7,19 +7,20 @@ const typeDefs = gql`
   }
 
   type Product {
-    _id: ID
+    productId: ID
     name: String
     description: String
     image: String
     price: Float
     quantity: Int
-    business: [Business]
+    business: Business
   }
 
   type User {
     _id: ID
     userName: String
     email: String
+    vendor: Boolean
   }
 
   type Business {
@@ -30,15 +31,34 @@ const typeDefs = gql`
     category: [Category]
     products: [Product]
   }
+
   type Auth {
-    token: ID
+    token: ID!
     user: User
+  }
+
+  input ProductInput {
+    name: String
+    productId: ID!
+    description: String
+    image: String
+    price: Float
+    quantity: Int
+    business: Business
+  }
+
+  input BusinessInput {
+    name: String
+    description: String
+    image: String
+    category: [Category]
+    products: [Product]
   }
 
   type Query {
     categories: [Category]
-    products(category: ID, name: String): [Product]
-    user: User
+    products: [Product]
+    product(_id: ID!): Product
     businesses: [Business]
     me: User
   }
@@ -46,7 +66,11 @@ const typeDefs = gql`
   type Mutation {
     addUser(userName: String!, email: String!, password: String!): Auth
     updateUser(userName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addProduct(product: ProductInput): Business
+    updateProduct(productId: ID!, quantity: Int!): Business
+    deleteproduct(productId: ID!): Business
+    addBusiness(business: BusinessInput): Business
+    updateBusiness(_id: ID!, business: BusinessInput): Business
     login(email: String!, password: String!): Auth
   }
 `;
