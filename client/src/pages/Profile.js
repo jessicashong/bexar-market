@@ -11,13 +11,13 @@ function Profile() {
             if (/*type === business*/) {
                 return (
                     <div>
-
+                        <h2>Hello, {businessName}</h2>
                     </div>
                 )
             } else {
                 return (
                     <div>
-                        
+                        <h2>Hello, {username}</h2>
                     </div>
                 )
             }
