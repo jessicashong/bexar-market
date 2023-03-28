@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 // Import style.css to include tailwind directives
 import './style.css';
 
-function UserLogin() {
+function BusinessLogin() {
 
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(BUSINESS_LOGIN);
@@ -72,4 +72,4 @@ function UserLogin() {
 
 };
 
-export default UserLogin;
+export default BusinessLogin;
