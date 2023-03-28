@@ -1,10 +1,19 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
 const Product = require('./Product');
 
 const businessSchema = new Schema({
-  name: {
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
+  },
+  businessName: {
     type: String,
     required: true,
     trim: true
@@ -23,6 +32,6 @@ const businessSchema = new Schema({
   products: [Product.schema]
 });
 
-const Business = mongoose.model('Business', businessSchema);
+const Business = model('Business', businessSchema);
 
 module.exports = Business;

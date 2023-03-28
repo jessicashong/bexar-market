@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
+const Business = require('./Business');
 
 const productSchema = new Schema({
   name: {
@@ -31,6 +31,6 @@ const productSchema = new Schema({
   },
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 
 module.exports = Product;
