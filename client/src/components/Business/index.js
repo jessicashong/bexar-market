@@ -8,7 +8,7 @@ function Business(business) {
 
     const {
         image,
-        name,
+        businessName,
         _id,
         category,
         description
@@ -18,10 +18,10 @@ function Business(business) {
         <div className="card px-1 py-1">
           <Link to={`/businesses/${_id}`}>
             <img
-              alt={name}
+              alt={businessName}
               src={`/images/${image}`}
             />
-            <p>{name}</p>
+            <p>{businessName}</p>
           </Link>
           <div>
             <span>Category: {category}</span>
