@@ -24,14 +24,37 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, { userName, email, password }) => {
-
+            const user = await User.create({ userName, email, password });
+            const token = signToken(user);
+            return { token, user };
         },
-        updateUser: async (parent, { userName, email, password }) => {
-
+        updateUser: async (parent, args, context) => {
+            if(context.user) {
+                return User.findByIdAndUpdate(context.user._id, args, {
+                    new: true,
+                });
+            }
+            throw new AuthenticationError('You need to be logged in.');
         },
-        updateProduct: async (parent, { _id, quantity }) => {
-            
+        addProduct: ,
+        updateProduct: async (parent, args, context) => {
+            if(context.product){
+                return Product.findByIdAndUpdate(context.product.productId, args, {
+                    new: true,
+                });
+            }
         },
+        deleteProduct: async (parent, args, context) => {
+            if(context.product){
+                return Product.findByIdAndDelete(context.product.productId, args, {
+                    new: true,
+                });
+            }
+        },
+        addBusiness: ,
+        updateBusiness: ,
+        addFavorite: ,
+        deleteFavorite: ,
         login: async(parent, { email, password }) => {
             const user = await User.findOne({ email });
 
