@@ -72,7 +72,7 @@ const typeDefs = gql`
     addProduct(product: ProductInput): Product
     updateProduct(product: ProductInput): Product
     deleteProduct(productId: ID!): Product
-    addBusiness(business: BusinessInput): Business
+    addBusiness(business: BusinessInput): Auth
     updateBusiness(business: BusinessInput): Business
     addFavorite(product: ProductInput): User
     deleteFavorite(productId: ID!): User
