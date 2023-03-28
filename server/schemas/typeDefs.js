@@ -45,7 +45,6 @@ const typeDefs = gql`
     image: String
     price: Float
     quantity: Int
-    business: BusinessInput
   }
 
   input BusinessInput {
