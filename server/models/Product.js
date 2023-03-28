@@ -24,7 +24,11 @@ const productSchema = new Schema({
     min: 0,
     default: 0
   },
-  business: [Business.schema]
+  business: {
+    type: Schema.Types.ObjectId,
+    ref: 'Business',
+    required: true
+  },
 });
 
 const Product = model('Product', productSchema);

@@ -7,17 +7,19 @@ const resolvers = {
         categories: async () => {
             return await Category.find();
         },
-        // products: async (parent, { category, name }) => {
-        
-        // },
-        users: {
-
+        products: async () => {
+            return await Product.find();
         },
-        businesses: {
-
+        product: async (parent, { productId }) =>
+            Product.findById(productId).populate('category'),
+        businesses: async () => {
+            return await Business.find();
         },
-        me: {
-            
+        me: async (parent, args, context) => {
+            if(context.user) {
+                return User.findOne({ _id: context.user._id }).populate('favorites')
+            }
+            throw new AuthenticationError('You need to be logged in.');
         }
     },
     Mutation: {
