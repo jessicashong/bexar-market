@@ -9,9 +9,17 @@ function Profile() {
     function showProfile() {
         if (Auth.loggedIn()) {
             if (/*type === business*/) {
-                
-            } else {
+                return (
+                    <div>
 
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        
+                    </div>
+                )
             }
         } else {
             return (
