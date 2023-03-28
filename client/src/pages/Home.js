@@ -1,7 +1,7 @@
 import React from "react";
 import BusinessList from "../components/BusinessList"
 
-const Home = () => {
+function Home() {
     return (
       <div className="container">
         <BusinessList />
