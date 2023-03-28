@@ -49,6 +49,16 @@ function Nav() {
             Home
           </Link>
         </h1>
+        <h2>
+          <Link to="/about">
+            About
+          </Link>
+        </h2>
+        <h2>
+          <Link to="/search">
+            Search
+          </Link>
+        </h2>
   
         <nav>
           {showNavigation()}
