@@ -1,10 +1,10 @@
 import React from "react";
-import StoreList from "../components/StoreList"
+import BusinessList from "../components/BusinessList"
 
 const Home = () => {
     return (
       <div className="container">
-        <StoreList />
+        <BusinessList />
       </div>
     );
   };
