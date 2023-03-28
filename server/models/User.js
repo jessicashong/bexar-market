@@ -19,7 +19,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  vender: {
+  vendor: {
     type: Boolean,
     required: true
   },
