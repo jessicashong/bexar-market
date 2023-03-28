@@ -20,7 +20,7 @@ function BusinessList() {
                 _id={business._id}
                 image={business.image}
                 name={business.name}
-                catagory={business.catagory}
+                category={business.category}
                 description={business.description}
               />
             ))}
