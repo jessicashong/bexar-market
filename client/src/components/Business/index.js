@@ -10,7 +10,7 @@ function Business(business) {
         image,
         name,
         _id,
-        catagory,
+        category,
         description
       } = business;
 
@@ -24,7 +24,7 @@ function Business(business) {
             <p>{name}</p>
           </Link>
           <div>
-            <span>Catagory: {catagory}</span>
+            <span>Category: {category}</span>
             <div>{description}</div>
           </div>
         </div>
