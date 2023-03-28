@@ -36,7 +36,7 @@ function UserLogin() {
 
     return (
     <div className="container my-1">
-      <h2>User Login</h2>
+      <h2>Business Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
