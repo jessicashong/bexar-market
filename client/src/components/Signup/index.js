@@ -53,12 +53,12 @@ function Signup() {
                         placeholder="Email" />
 
                     <input 
-                        type="text"
+                        type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Password" />
                     <input 
-                        type="text"
+                        type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
                         placeholder="Confirm Password" />
