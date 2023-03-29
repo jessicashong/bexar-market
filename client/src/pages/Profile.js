@@ -14,12 +14,14 @@ function Profile() {
                 return (
                     <div>
                         <h2>Hello, {businessName}</h2>
-                        <button>Update Business Name</button>
-                        <button>Update Business Email</button>
-                        <button>Update Password</button>
-                        <button>Update Business Image</button>
-                        <button>Update Business Description</button>
-                        <button>Add Product</button>
+                        <div className='updateButtons'>
+                            <button>Update Business Name</button>
+                            <button>Update Business Email</button>
+                            <button>Update Password</button>
+                            <button>Update Business Image</button>
+                            <button>Update Business Description</button>
+                            <button>Add Product</button>
+                        </div>
                         <BusinessProductList />
                     </div>
                 )
@@ -27,9 +29,11 @@ function Profile() {
                 return (
                     <div>
                         <h2>Hello, {username}</h2>
-                        <button>Update Username</button>
-                        <button>Update Email</button>
-                        <button>Update Password</button>
+                        <div className='updateButtons'>
+                            <button>Update Username</button>
+                            <button>Update Email</button>
+                            <button>Update Password</button>
+                        </div>
                         <UserFavoriteList />
                     </div>
                 )
