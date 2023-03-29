@@ -17,7 +17,7 @@ const resolvers = {
       return await Business.find().populate('category').populate('products');
     },
     me: async (parent, args, context) => {
-      if(context.user) {
+      if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('favorites');
       }
       throw new AuthenticationError('You need to be logged in.');
@@ -30,7 +30,7 @@ const resolvers = {
       return { token, user };
     },
     updateUser: async (parent, args, context) => {
-      if(context.user) {
+      if (context.user) {
         return User.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
@@ -38,15 +38,18 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in.');
     },
     addProduct: async (parent, { product }, context) => {
-      console.log(context);
-      if (context.business) {
-        const product = await Product.create({ product });
-        return { product };
+      if (context.user) {
+        const addProduct = await Business.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { products: product } },
+          { new: true, runValidators: true }
+        );
+        return addProduct;
       }
-      throw new AuthenticationError('You must be logged in as a business.')
-    } ,
+      throw new AuthenticationError('You must be logged in as a business.');
+    },
     updateProduct: async (parent, args, context) => {
-      if(context.product){
+      if (context.product) {
         return Product.findByIdAndUpdate(context.product._id, args, {
           new: true,
         });
@@ -54,7 +57,7 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in as a business.')
     },
     deleteProduct: async (parent, args, context) => {
-      if(context.product){
+      if (context.product) {
         return Product.findByIdAndDelete(context.product._id, args, {
           new: true,
         });
@@ -74,7 +77,7 @@ const resolvers = {
     },
     addFavorite: async (parent, { product }, context) => {
       console.log(context);
-      if (context.user){
+      if (context.user) {
         const favorites = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { favorites: product } },
@@ -95,15 +98,15 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
-    login: async(parent, { email, password }) => {
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
-      if(!user){
+      if (!user) {
         throw new AuthenticationError('Incorrect username or password.');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      if(!correctPw){
+      if (!correctPw) {
         throw new AuthenticationError('Incorrect username or password.');
       }
       const token = signToken(user);
@@ -112,13 +115,15 @@ const resolvers = {
     businessLogin: async (parent, { email, password }) => {
       const business = await Business.findOne({ email });
 
-      if(!business){
-        throw new AuthenticationError('Incorrect username or password.');
+      if (!business) {
+        console.log(business);
+        throw new AuthenticationError('Incorrect business name or password.');
       }
 
       const correctPw = await business.isCorrectPassword(password);
-      if(!correctPw){
-        throw new AuthenticationError('Incorrect username or password.');
+      if (!correctPw) {
+        console.log(correctPw);
+        throw new AuthenticationError('Incorrect business name or password.');
       }
       const token = signToken(business);
       return { token, business };
