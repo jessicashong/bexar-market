@@ -44,7 +44,6 @@ const typeDefs = gql`
 
   input ProductInput {
     name: String
-    _id: ID!
     description: String
     image: String
     price: Float
@@ -52,7 +51,7 @@ const typeDefs = gql`
   }
 
   input BusinessInput {
-    _id: ID!
+    _id: ID
     email: String
     businessName: String
     description: String
@@ -78,10 +77,10 @@ const typeDefs = gql`
   type Mutation {
     addUser(userName: String!, email: String!, password: String!): Auth
     updateUser(userName: String, email: String, password: String): User
-    addProduct(product: ProductInput): Product
+    addProduct(product: ProductInput): Business
     updateProduct(product: ProductInput): Product
     deleteProduct(_id: ID!): Product
-    addBusiness(business: BusinessInput): Auth
+    addBusiness(businessName: String!, email: String!, password: String!): BusinessAuth
     updateBusiness(business: BusinessInput): Business
     addFavorite(product: ProductInput): User
     deleteFavorite(_id: ID!): User
