@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Auth from "../../utils/auth";
 import { useMutation } from '@apollo/client';
 import { USER_LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
 
 // Import style.css to include tailwind directives
 import './style.css';
