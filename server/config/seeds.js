@@ -10,8 +10,48 @@ db.once('open', async () => {
     { name: 'Jewelry' },
     { name: 'Textiles' },
 
-  ]); 
+  ]);
   console.log('categories seeded');
+
+  await Business.deleteMany();
+
+  const businesses = await Business.insertMany([
+    {
+      email: 'woodchippers@email.com',
+      password: 'password1234',
+      businessName: 'Wood Chippers',
+      description: 'Wood Workers',
+      image: 'logo.jpg',
+      category: categories[0]._id,
+
+    },
+    {
+      email: 'bigbexar@email.com',
+      password: 'password1234',
+      businessName: 'Big Bexar Leather',
+      description: 'Leatherworkers',
+      image: 'logo.jpg',
+      category: categories[1]._id,
+    },
+    {
+      email: 'windfind@email.com',
+      password: 'password1234',
+      businessName: 'Windings and Findings',
+      description: 'Jewelry making',
+      image: 'logo.jpg',
+      category: categories[2]._id,
+    },
+    {
+      email: 'scrappy@email.com',
+      password: 'password1234',
+      businessName: 'Sewy Scraps',
+      description: 'Sewing',
+      image: 'logo.jpg',
+      category: categories[3]._id,
+    },
+
+  ]);
+  console.log('businesses seeded');
 
   await Product.deleteMany();
 
@@ -21,38 +61,37 @@ db.once('open', async () => {
       description:
         'Cute wooden birdhouse for your backyard.',
       image: 'birdhouse.jpg',
-      category: categories[0]._id,
       price: 25.99,
       quantity: 2,
+      business: businesses[0]._id,
     },
     {
       name: 'Bison Billfold Wallet',
       description:
         'Wallet made from bison leather and lovingly hand laced.',
       image: 'bisonbillfoldwallet.jpg',
-      category: categories[1]._id,
       price: 49.99,
       quantity: 1,
+      business: businesses[1]._id,
     },
     {
       name: 'Topaz Pendant',
-      category: categories[2]._id,
       description:
         'Rough cut topaz stone set in sterling silver setting.',
       image: 'topazpendant.jpg',
       price: 59.99,
       quantity: 2,
+      business: businesses[2]._id,
     },
     {
       name: 'Black Skirt',
-      category: categories[3]._id,
       description:
         'Pleated black skirt for nice movability.',
       image: 'blackskirt.jpg',
       price: 10.99,
       quantity: 5,
+      business: businesses[3]._id,
     },
-    
   ]);
 
   console.log('products seeded');
@@ -60,17 +99,27 @@ db.once('open', async () => {
   await User.deleteMany();
 
   await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
-    password: 'password12345',
+    userName: 'Lydia',
+    email: 'lydia@email.com',
+    password: 'password1234',
   });
 
   await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345',
+    userName: 'Jess',
+    email: 'jess@email.com',
+    password: 'password1234',
+  });
+
+  await User.create({
+    userName: 'Chloe',
+    email: 'chloe@email.com',
+    password: 'password1234',
+  });
+
+  await User.create({
+    userName: 'Michael',
+    email: 'michael@email.com',
+    password: 'password1234',
   });
 
   console.log('users seeded');
