@@ -10,15 +10,15 @@ const resolvers = {
     products: async () => {
       return await Product.find();
     },
-    product: async (parent, { productId }) => {
-      return await Product.findById(productId).populate('category');
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id);
     },
     businesses: async () => {
-      return await Business.find();
+      return await Business.find().populate('category').populate('products');
     },
     me: async (parent, args, context) => {
       if(context.user) {
-        return User.findOne({ _id: context.user._id }).populate('favorites')
+        return User.findOne({ _id: context.user._id }).populate('favorites');
       }
       throw new AuthenticationError('You need to be logged in.');
     }
@@ -47,7 +47,7 @@ const resolvers = {
     } ,
     updateProduct: async (parent, args, context) => {
       if(context.product){
-        return Product.findByIdAndUpdate(context.product.productId, args, {
+        return Product.findByIdAndUpdate(context.product._id, args, {
           new: true,
         });
       }
@@ -55,7 +55,7 @@ const resolvers = {
     },
     deleteProduct: async (parent, args, context) => {
       if(context.product){
-        return Product.findByIdAndDelete(context.product.productId, args, {
+        return Product.findByIdAndDelete(context.product._id, args, {
           new: true,
         });
       }
@@ -84,11 +84,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
-    deleteFavorite: async (parent, { productId }, context) => {
+    deleteFavorite: async (parent, { _id }, context) => {
       if (context.user) {
         const favorites = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { favorites: { productId: productId } } },
+          { $pull: { favorites: { _id: _id } } },
           { new: true }
         );
         return favorites;

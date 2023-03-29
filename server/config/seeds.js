@@ -13,46 +13,6 @@ db.once('open', async () => {
   ]);
   console.log('categories seeded');
 
-  await Business.deleteMany();
-
-  const businesses = await Business.insertMany([
-    {
-      email: 'woodchippers@email.com',
-      password: 'password1234',
-      businessName: 'Wood Chippers',
-      description: 'Wood Workers',
-      image: 'logo.jpg',
-      category: categories[0]._id,
-
-    },
-    {
-      email: 'bigbexar@email.com',
-      password: 'password1234',
-      businessName: 'Big Bexar Leather',
-      description: 'Leatherworkers',
-      image: 'logo.jpg',
-      category: categories[1]._id,
-    },
-    {
-      email: 'windfind@email.com',
-      password: 'password1234',
-      businessName: 'Windings and Findings',
-      description: 'Jewelry making',
-      image: 'logo.jpg',
-      category: categories[2]._id,
-    },
-    {
-      email: 'scrappy@email.com',
-      password: 'password1234',
-      businessName: 'Sewy Scraps',
-      description: 'Sewing',
-      image: 'logo.jpg',
-      category: categories[3]._id,
-    },
-
-  ]);
-  console.log('businesses seeded');
-
   await Product.deleteMany();
 
   const products = await Product.insertMany([
@@ -63,7 +23,6 @@ db.once('open', async () => {
       image: 'birdhouse.jpg',
       price: 25.99,
       quantity: 2,
-      business: businesses[0]._id,
     },
     {
       name: 'Bison Billfold Wallet',
@@ -72,7 +31,6 @@ db.once('open', async () => {
       image: 'bisonbillfoldwallet.jpg',
       price: 49.99,
       quantity: 1,
-      business: businesses[1]._id,
     },
     {
       name: 'Topaz Pendant',
@@ -81,7 +39,6 @@ db.once('open', async () => {
       image: 'topazpendant.jpg',
       price: 59.99,
       quantity: 2,
-      business: businesses[2]._id,
     },
     {
       name: 'Black Skirt',
@@ -90,11 +47,52 @@ db.once('open', async () => {
       image: 'blackskirt.jpg',
       price: 10.99,
       quantity: 5,
-      business: businesses[3]._id,
     },
   ]);
 
   console.log('products seeded');
+
+  await Business.deleteMany();
+
+  const businesses = await Business.insertMany([
+    {
+      email: 'woodchippers@email.com',
+      password: 'password1234',
+      businessName: 'Wood Chippers',
+      description: 'Wood Workers',
+      image: 'logo.jpg',
+      category: categories[0]._id,
+      products: [products[0]],
+    },
+    {
+      email: 'bigbexar@email.com',
+      password: 'password1234',
+      businessName: 'Big Bexar Leather',
+      description: 'Leatherworkers',
+      image: 'logo.jpg',
+      category: categories[1]._id,
+      products: [products[1]],
+    },
+    {
+      email: 'windfind@email.com',
+      password: 'password1234',
+      businessName: 'Windings and Findings',
+      description: 'Jewelry making',
+      image: 'logo.jpg',
+      category: categories[2]._id,
+      products: [products[2]],
+    },
+    {
+      email: 'scrappy@email.com',
+      password: 'password1234',
+      businessName: 'Sewy Scraps',
+      description: 'Sewing',
+      image: 'logo.jpg',
+      category: categories[3]._id,
+      products: [products[3]],
+    },
+  ]);
+  console.log('businesses seeded');
 
   await User.deleteMany();
 
