@@ -7,13 +7,12 @@ const typeDefs = gql`
   }
 
   type Product {
-    productId: ID
+    _id: ID
     name: String
     description: String
     image: String
     price: Float
     quantity: Int
-    business: Business
   }
 
   type User {
@@ -29,7 +28,7 @@ const typeDefs = gql`
     businessName: String
     description: String
     image: String
-    category: [Category]
+    category: Category
     products: [Product]
   }
 
@@ -40,7 +39,7 @@ const typeDefs = gql`
 
   input ProductInput {
     name: String
-    productId: ID!
+    _id: ID!
     description: String
     image: String
     price: Float
@@ -58,6 +57,7 @@ const typeDefs = gql`
   }
 
   input CategoryInput {
+    _id: ID
     name: String
   }
 
@@ -65,7 +65,7 @@ const typeDefs = gql`
   type Query {
     categories: [Category]
     products: [Product]
-    product(productId: ID!): Product
+    product(_id: ID!): Product
     businesses: [Business]
     me: User
   }
@@ -75,11 +75,11 @@ const typeDefs = gql`
     updateUser(userName: String, email: String, password: String): User
     addProduct(product: ProductInput): Product
     updateProduct(product: ProductInput): Product
-    deleteProduct(productId: ID!): Product
+    deleteProduct(_id: ID!): Product
     addBusiness(business: BusinessInput): Auth
     updateBusiness(business: BusinessInput): Business
     addFavorite(product: ProductInput): User
-    deleteFavorite(productId: ID!): User
+    deleteFavorite(_id: ID!): User
     login(email: String!, password: String!): Auth
   }
 `;
