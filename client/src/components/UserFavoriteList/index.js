@@ -3,7 +3,7 @@ import UserFavoriteItem from "../UserFavoriteItem"
 // Import style.css to include tailwind directives
 import './style.css';
 
-function BusinessProductList() {
+function UserFavoriteList() {
 
     return (
         <div>
@@ -29,4 +29,4 @@ function BusinessProductList() {
     )
 }
 
-export default BusinessProductList;
+export default UserFavoriteList;
