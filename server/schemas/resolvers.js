@@ -10,8 +10,9 @@ const resolvers = {
     products: async () => {
       return await Product.find();
     },
-    product: async (parent, { productId }) =>
-      Product.findById(productId).populate('category'),
+    product: async (parent, { productId }) => {
+      return await Product.findById(productId).populate('category');
+    },
     businesses: async () => {
       return await Business.find();
     },
