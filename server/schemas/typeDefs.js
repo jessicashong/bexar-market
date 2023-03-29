@@ -45,7 +45,6 @@ const typeDefs = gql`
     image: String
     price: Float
     quantity: Int
-    business: Business
   }
 
   input BusinessInput {
@@ -54,9 +53,14 @@ const typeDefs = gql`
     businessName: String
     description: String
     image: String
-    category: Category
-    products: [Product]
+    category: CategoryInput
+    products: [ProductInput]
   }
+
+  input CategoryInput {
+    name: String
+  }
+
 
   type Query {
     categories: [Category]
