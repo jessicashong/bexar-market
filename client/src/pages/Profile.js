@@ -2,6 +2,7 @@ import React from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import BusinessProductList from '../components/BusinessProductList';
+import UserFavoriteList from '../components/UserFavoriteList';
 // Import style.css to include tailwind directives
 import './style.css';
 
@@ -14,6 +15,7 @@ function Profile() {
                     <div>
                         <h2>Hello, {businessName}</h2>
                         <button>Update Business Name</button>
+                        <button>Update Business Email</button>
                         <button>Update Password</button>
                         <button>Update Business Image</button>
                         <button>Update Business Description</button>
@@ -25,6 +27,10 @@ function Profile() {
                 return (
                     <div>
                         <h2>Hello, {username}</h2>
+                        <button>Update Username</button>
+                        <button>Update Email</button>
+                        <button>Update Password</button>
+                        <UserFavoriteList />
                     </div>
                 )
             }
