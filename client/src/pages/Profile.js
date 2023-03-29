@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import BusinessProductList from '../components/BusinessProductList';
 // Import style.css to include tailwind directives
 import './style.css';
 
@@ -12,6 +13,7 @@ function Profile() {
                 return (
                     <div>
                         <h2>Hello, {businessName}</h2>
+                        <BusinessProductList />
                     </div>
                 )
             } else {
