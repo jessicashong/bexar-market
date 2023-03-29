@@ -81,6 +81,7 @@ const typeDefs = gql`
     addFavorite(product: ProductInput): User
     deleteFavorite(_id: ID!): User
     login(email: String!, password: String!): Auth
+    businessLogin(email: String!, password: String!): Auth
   }
 `;
 
