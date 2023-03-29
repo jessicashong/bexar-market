@@ -108,6 +108,20 @@ const resolvers = {
       }
       const token = signToken(user);
       return { token, user };
+    },
+    businessLogin: async (parent, { email, password }) => {
+      const business = await Business.findOne({ email });
+
+      if(!business){
+        throw new AuthenticationError('Incorrect username or password.');
+      }
+
+      const correctPw = await business.isCorrectPassword(password);
+      if(!correctPw){
+        throw new AuthenticationError('Incorrect username or password.');
+      }
+      const token = signToken(business);
+      return { token, business };
     }
   }
 };

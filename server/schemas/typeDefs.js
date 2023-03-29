@@ -37,6 +37,11 @@ const typeDefs = gql`
     user: User
   }
 
+  type BusinessAuth {
+    token: ID!
+    business: Business
+  }
+
   input ProductInput {
     name: String
     _id: ID!
@@ -81,6 +86,7 @@ const typeDefs = gql`
     addFavorite(product: ProductInput): User
     deleteFavorite(_id: ID!): User
     login(email: String!, password: String!): Auth
+    businessLogin(email: String!, password: String!): BusinessAuth
   }
 `;
 
