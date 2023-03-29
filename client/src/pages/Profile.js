@@ -9,10 +9,15 @@ function Profile() {
 
     function showProfile() {
         if (Auth.loggedIn()) {
-            if (/*type === business*/) {
+            if (type === business) {
                 return (
                     <div>
                         <h2>Hello, {businessName}</h2>
+                        <button>Update Business Name</button>
+                        <button>Update Password</button>
+                        <button>Update Business Image</button>
+                        <button>Update Business Description</button>
+                        <button>Add Product</button>
                         <BusinessProductList />
                     </div>
                 )
