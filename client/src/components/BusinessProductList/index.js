@@ -7,10 +7,10 @@ function BusinessProductList() {
 
     return (
         <div>
-            <h2>Your Favorited Items</h2>
+            <h2>Your Products</h2>
             {state.products.length ? (
                 <div className="flex-row">
-                    {filterfavorites().map((product) => (
+                    {filterproducts().map((product) => (
                         <BusinessProductItem
                             key={product._id}
                             _id={product._id}
@@ -23,7 +23,7 @@ function BusinessProductList() {
                     ))}
                 </div>
                     ) : (
-                        <h3>No favorites selected yet, browse what we have and save what you like!</h3>
+                        <h3>No products added to your store, use the Add Product button to stock your store!</h3>
                     )}
         </div>
     )
