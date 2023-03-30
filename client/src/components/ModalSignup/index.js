@@ -7,12 +7,23 @@ import { Link, useNavigate  } from "react-router-dom";
 
 const Modal = ({ isVisible, onClose }) => {
 
-    const [isBusinessApplication, setIsBusinessApplication] = useState(false);
-    const [isUserApplication, setIsUserApplication] = useState(false);
+    // Create a variable that uses the useNavigate react function
+    const navigate = useNavigate();
+
+    // when this function is called, redirect the page to the home page
+    const navigateHome = () => {
+        navigate('/home');
+    }
+    const navigateSignup = () => {
+        navigate('/signup');
+    }
 
     // when user clicks OUTSIDE the modal, then close the modal. the div id is called wrapper.
     const handleClose = (e) => {
-        if (e.target.id === 'wrapper') onClose();
+        if (e.target.id === 'wrapper') {
+            onClose();
+            navigateHome();
+        }
     }
 
     if (!isVisible) return null; 
@@ -25,7 +36,11 @@ const Modal = ({ isVisible, onClose }) => {
             <div className='w-[600px] flex flex-col'>
                 {/* User may also close the modal by clicking the 'X' on the modal edge */}
                 <button className='text-white text-xl place-self-end'
-                onClick={()=> onClose() && console.log("closed by clicking X")}
+                onClick={ () => {
+                    onClose();
+                    navigateHome();
+                    }
+                }
                 >
                     X
                 </button>
@@ -44,25 +59,23 @@ const Modal = ({ isVisible, onClose }) => {
                             className='bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 mb-4'
                             // when this button is clicked, set the modal to be true (modal appears)
                             onClick ={ () => {
-                                setIsBusinessApplication(true);
                                 onClose();
+                                navigateSignup();
                                 }
                             }
                         >Signup as a Business
                         </button>
-                        {console.log(`Is a BUSINESS? ${isBusinessApplication}`)}
                         <button
                                 type="submit"
                                 className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                                 // when this button is clicked, set the modal to be true (modal appears)
                                 onClick ={ () => {
-                                    setIsUserApplication(true);
                                     onClose();
+                                    navigateSignup();
                                     }
                                 }
                             >Signup as a User
                         </button>
-                        {console.log(`Is a USER? ${isUserApplication}`)}
                     </div>
                 </div>
             </div>
