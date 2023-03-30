@@ -8,11 +8,16 @@ const typeDefs = gql`
 
   type Product {
     _id: ID
-    name: String
+    productName: String
     description: String
     image: String
     price: Float
     quantity: Int
+  }
+
+  type Favorites {
+   _id: ID
+   products: [Product]
   }
 
   type User {
@@ -43,7 +48,7 @@ const typeDefs = gql`
   }
 
   input ProductInput {
-    name: String
+    productName: String
     description: String
     image: String
     price: Float
@@ -78,12 +83,12 @@ const typeDefs = gql`
     addUser(userName: String!, email: String!, password: String!): Auth
     updateUser(userName: String, email: String, password: String): User
     addProduct(product: ProductInput): Business
-    updateProduct(product: ProductInput): Product
-    deleteProduct(_id: ID!): Product
+    updateProduct(productId: ID!, product: ProductInput): Product
+    deleteProduct(productId: ID!): Product
     addBusiness(businessName: String!, email: String!, password: String!): BusinessAuth
     updateBusiness(business: BusinessInput): Business
-    addFavorite(product: ProductInput): User
-    deleteFavorite(_id: ID!): User
+    addFavorite(products: [ID]): User
+    deleteFavorite(favoriteId: ID!): User
     login(email: String!, password: String!): Auth
     businessLogin(email: String!, password: String!): BusinessAuth
   }
