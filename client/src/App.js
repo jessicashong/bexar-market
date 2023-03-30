@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import Search from './pages/Search';
 import Signup from './pages/Signup';
 import Business from './pages/Business';
+import Modal from './components/ModalSignup';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -53,8 +54,8 @@ function App() {
                 element={<Login />}
               />
               <Route 
-                path="/signup" 
-                element={<Signup />}
+                path="/modalSignup" 
+                element={<Modal />}
               />
               <Route 
                 path="/profile" 

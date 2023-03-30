@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Business } = require('../models');
+const { User, Product, Category, Business, Favorites } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -29,40 +29,81 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    updateUser: async (parent, args, context) => {
+    updateUser: async (parent, { userName, email, password }, context) => {
       if (context.user) {
-        return User.findByIdAndUpdate(context.user._id, args, {
+        const user = await User.findByIdAndUpdate(context.user._id, {
+          userName,
+          email,
+          password
+        },
+        {
           new: true,
+          runValidators: true
         });
+        console.log('UPDATEUSER:', user);
+        const token = signToken(user);
+        return { token, user };
       }
       throw new AuthenticationError('You need to be logged in.');
     },
-    addProduct: async (parent, { product }, context) => {
+    addProduct: async (parent, { productName, description, image, price, quantity }, context) => {
       if (context.user) {
-        const addProduct = await Business.findOneAndUpdate(
+        const product = await Product.create({
+          productName,
+          description,
+          image,
+          price,
+          quantity
+        });
+        await Business.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { products: product } },
           { new: true, runValidators: true }
         );
-        return addProduct;
+        return product;
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
-    updateProduct: async (parent, args, context) => {
+    updateProduct: async (parent, { productId, productName, description, image, price, quantity }, context) => {
       if (context.product) {
-        return Product.findByIdAndUpdate(context.product._id, args, {
+        const product = await Product.findOneAndUpdate(productId, {
+          productName,
+          description,
+          image,
+          price,
+          quantity
+        },
+        {
           new: true,
-        });
+          runValidators: true,
+        }
+        );
+        await Business.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { products: product } },
+          { new: true, runValidators: true }
+        );
+        return product;
       }
-      throw new AuthenticationError('You must be logged in as a business.')
+      throw new AuthenticationError('You must be logged in as a business.');
     },
-    deleteProduct: async (parent, args, context) => {
-      if (context.product) {
-        return Product.findByIdAndDelete(context.product._id, args, {
-          new: true,
+    deleteProduct: async (parent, { productId }, context) => {
+      if (context.user) {
+        console.log('1st user', context.user);
+        console.log('1st prod', productId);
+        const product = await Product.findOneAndDelete({
+          _id: productId
         });
+        console.log('2nd user', context.user._id);
+        console.log('2nd prod', product);
+        await Business.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { products: product._id } },
+          { new: true, runValidators: true }
+        );
+        return product;
       }
-      throw new AuthenticationError('You must be logged in as a business.')
+      throw new AuthenticationError('You must be logged in as a business.');
     },
     addBusiness: async (parent, args, context) => {
       const business = await Business.create(args);
@@ -75,14 +116,18 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
-    addFavorite: async (parent, { product }, context) => {
-      console.log(context);
+    addFavorite: async (parent, { productId }, context) => {
+      console.log(context.user);
       if (context.user) {
-        const favorites = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { favorites: product } },
-          { new: true }
+        const favorites = await Favorites.create(
+          { _id: productId },
         );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { favorites: [favorites] } },
+          { new: true, runValidators: true }
+        );
+        console.log('favorites:', favorites);
         return favorites;
       }
       throw new AuthenticationError('You must be logged in.');
@@ -100,7 +145,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log('LOGIN:', user);
       if (!user) {
         throw new AuthenticationError('Incorrect username or password.');
       }
