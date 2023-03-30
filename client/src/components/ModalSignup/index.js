@@ -1,6 +1,7 @@
 // Import style.css to include tailwind directives
 import './style.css';
 import React from 'react';
+import { Link, useNavigate  } from "react-router-dom";
 
 // TODO: update modal to include Vendor vs Shopper buttons to redirect to Signup Page
 

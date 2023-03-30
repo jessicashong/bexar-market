@@ -37,21 +37,24 @@ const [showModal, setShowModal] = useState(false);
             </li>
             <li> | </li>
             <li className="mx-1">
-              
-              {/* Insert Signup Modal here that allows user to select whether they signup as a business or a user */}
-              <Modal isVisible ={showModal} 
-              onClose={() => {
-                // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
+                {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
-                setShowModal(false);
-                // when modal is closed, go to signup page
-                <Link to="../Signup/index.js">
+                // when modal is closed, go to signup page */}
+                <Link to="/modalSignup"
+                onClick={ () => {
+                  setShowModal(true)
+                  }
+                }>
                   Signup
                 </Link>
-                }
-              }> 
-              Signup
-              </Modal>
+                {/* Insert Signup Modal here that allows user to select whether they signup as a business or a user */}
+                <Modal 
+                  isVisible ={showModal} 
+                  onClose={() => {
+                    setShowModal(false);
+                    }
+                }>
+                </Modal>
             </li>
           </ul>
         );
