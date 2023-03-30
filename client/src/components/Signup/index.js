@@ -1,35 +1,20 @@
 // Import style.css to include tailwind directives
 import './style.css';
-
 import React, { useState } from 'react';
 // import { Button } from "@material-tailwind/react";
-import Modal from "../ModalSignup/index.js";
+import { useMutation } from '@apollo/client';
+import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
 
 // TODO: update this with backend
 var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 
 // TODO: handle any backend logic between users, categories, etc. 
-
-// TODO: handle checkbox event
-// function Checkbox() { 
-//   const handleChange = () => { 
-//     console.log('The checkbox was toggled'); 
-//   }; 
-  
-//   return ( 
-//     <div>  
-//       <input type="checkbox" onChange={handleChange}
-//       />
-//     </div> 
-//   ); 
-// }; 
+// mutations, queries
 
 // TODO: change input divs to Form (based on Book Search Signup.js)
 // TODO: 
 function Signup() {
 
-    // create state to show modal and to update modal; initialize to false (modal will not show until button is clicked)
-    const [showModal, setShowModal] = useState(false);
 
     return (
     <>
@@ -52,27 +37,31 @@ function Signup() {
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
-                        placeholder="Full Name" />
+                        placeholder="Full Name" 
+                        onChange={handleChange}/>
 
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
-                        placeholder="Email" />
+                        placeholder="Email" 
+                        onChange={handleChange}/>
 
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
-                        placeholder="Password" />
+                        placeholder="Password" 
+                        onChange={handleChange}/>
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
-                        placeholder="Confirm Password" />
+                        placeholder="Confirm Password" 
+                        onChange={handleChange}/>
                     {/* loops through the categories array to create checkbox */}
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
-                        <h3 className="italic mb-4">What categories are you interested in?</h3>
+                        <h3 className="italic mb-4">Optional: What categories are you interested in?</h3>
                         {categories.map((categoryName, i) => {
                             return (
                                 // add key here in case this specific item changes, then jsx knows to only change that    specific element
@@ -99,16 +88,10 @@ function Signup() {
                     </div>
                     
                     <div>
-                    <button
-                        type="submit"
-                        className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                    >Submit User Account</button>
-                    <button
-                        type="submit"
-                        className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                        // when this button is clicked, set the modal to be true (modal appears)
-                        onClick ={ () => setShowModal(true)}
-                    >Show Modal</button>
+                        <button
+                            type="submit"
+                            className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                        >Submit User Account</button>
                     </div>
                 </form>
                 
@@ -121,24 +104,28 @@ function Signup() {
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="business-name"
-                        placeholder="Business Name" />
+                        placeholder="Business Name" 
+                        onChange={handleChange}/>
 
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
-                        placeholder="Business Email" />
+                        placeholder="Business Email" 
+                        onChange={handleChange}/>
 
                     <input 
-                        type="text"
+                        type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
-                        placeholder="Password" />
+                        placeholder="Password" 
+                        onChange={handleChange}/>
                     <input 
-                        type="text"
+                        type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
-                        placeholder="Confirm Password" />
+                        placeholder="Confirm Password" 
+                        onChange={handleChange}/>
                     <input 
                         type="file"
                          />
@@ -173,24 +160,15 @@ function Signup() {
                     </div>
                     
                     <div>
-                    <button
-                        type="submit"
-                        className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                    >Submit Business Account</button>
-                    {/* {mySignupChoice()} */}
-                    <button
-                        type="submit"
-                        className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                        // when this button is clicked, set the modal to be true (modal appears)
-                        onClick ={ () => setShowModal(true)}
-                    >Show Modal</button>
+                        <button
+                            type="submit"
+                            className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                        >Submit Business Account</button>
                     </div>
                 </form>
 
             </div>
         </div>
-        {/* set isVisible to the showModal state and set showModal=false when modal is closed */}
-        <Modal isVisible ={showModal} onClose={() => setShowModal(false)}/>
     </>
     );
 }
