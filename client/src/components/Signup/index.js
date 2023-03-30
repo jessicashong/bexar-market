@@ -15,6 +15,18 @@ var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 // TODO: 
 function Signup() {
 
+    // STATE VARIABLES
+    const [formState, setFormState] = useState({ fullname: '', email: '', password: '', confirmPassword: '' });
+
+    // EVENT HANDLER BLOCK
+    // When an form field is changed, update the formState
+    const handleFormChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+        };
 
     return (
     <>
@@ -38,27 +50,27 @@ function Signup() {
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
 
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
 
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Password" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="confirm_password"
+                        name="confirmPassword"
                         placeholder="Confirm Password" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
                     {/* loops through the categories array to create checkbox */}
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
                         <h3 className="italic mb-4">Optional: What categories are you interested in?</h3>
@@ -103,29 +115,29 @@ function Signup() {
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="business-name"
+                        name="fullname"
                         placeholder="Business Name" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
 
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Business Email" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
 
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Password" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
                         placeholder="Confirm Password" 
-                        onChange={handleChange}/>
+                        onChange={handleFormChange}/>
                     <input 
                         type="file"
                          />
