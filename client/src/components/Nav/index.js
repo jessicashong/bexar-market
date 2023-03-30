@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import Modal from "../ModalSignup/index.js"
 // Import style.css to include tailwind directives
 import './style.css';
 
@@ -33,9 +34,14 @@ function Nav() {
             </li>
             <li> | </li>
             <li className="mx-1">
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 Signup
-              </Link>
+              </Link> */}
+              {/* Insert Signup Modal here that allows user to select whether they signup as a business or a user */}
+              <Modal isVisible ={showModal} 
+              onClose={() => {setShowModal(false)}}> 
+              Signup
+              </Modal>
             </li>
           </ul>
         );
