@@ -17,7 +17,7 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Birdhouse',
+      productName: 'Birdhouse',
       description:
         'Cute wooden birdhouse for your backyard.',
       image: 'birdhouse.jpg',
@@ -25,7 +25,7 @@ db.once('open', async () => {
       quantity: 2,
     },
     {
-      name: 'Bison Billfold Wallet',
+      productName: 'Bison Billfold Wallet',
       description:
         'Wallet made from bison leather and lovingly hand laced.',
       image: 'bisonbillfoldwallet.jpg',
@@ -33,7 +33,7 @@ db.once('open', async () => {
       quantity: 1,
     },
     {
-      name: 'Topaz Pendant',
+      productName: 'Topaz Pendant',
       description:
         'Rough cut topaz stone set in sterling silver setting.',
       image: 'topazpendant.jpg',
@@ -41,7 +41,7 @@ db.once('open', async () => {
       quantity: 2,
     },
     {
-      name: 'Black Skirt',
+      productName: 'Black Skirt',
       description:
         'Pleated black skirt for nice movability.',
       image: 'blackskirt.jpg',
