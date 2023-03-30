@@ -7,6 +7,9 @@ import './style.css';
 
 function Nav() {
 
+  // create state for Modal
+const [showModal, setShowModal] = useState(false);
+
     function showNavigation() {
       if (Auth.loggedIn()) {
         return (
@@ -34,12 +37,19 @@ function Nav() {
             </li>
             <li> | </li>
             <li className="mx-1">
-              {/* <Link to="/signup">
-                Signup
-              </Link> */}
+              
               {/* Insert Signup Modal here that allows user to select whether they signup as a business or a user */}
               <Modal isVisible ={showModal} 
-              onClose={() => {setShowModal(false)}}> 
+              onClose={() => {
+                // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
+                // else, simply setShowModal(false)
+                setShowModal(false);
+                // when modal is closed, go to signup page
+                <Link to="../Signup/index.js">
+                  Signup
+                </Link>
+                }
+              }> 
               Signup
               </Modal>
             </li>
