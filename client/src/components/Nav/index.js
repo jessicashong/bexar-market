@@ -40,7 +40,7 @@ const [showModal, setShowModal] = useState(false);
                 {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
                 // when modal is closed, go to signup page */}
-                <Link to="/modalSignup"
+                <Link to="/home"
                 onClick={ () => {
                   setShowModal(true)
                   }
