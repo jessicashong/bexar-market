@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
@@ -10,8 +10,10 @@ function Nav() {
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
 
+  const loggedIn = true
+
     function showNavigation() {
-      if (Auth.loggedIn()) {
+      if (/*Auth.loggedIn()*/loggedIn) {
         return (
           <ul className="flex-row">
             <li className="mx-1">
@@ -40,7 +42,7 @@ const [showModal, setShowModal] = useState(false);
                 {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
                 // when modal is closed, go to signup page */}
-                <Link to="/home"
+                <Link to="/"
                 onClick={ () => {
                   setShowModal(true)
                   }

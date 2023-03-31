@@ -2,8 +2,8 @@
 import './style.css';
 import React, { useState } from 'react';
 // import { Button } from "@material-tailwind/react";
-import { useMutation } from '@apollo/client';
-import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
+//import { useMutation } from '@apollo/client';
+//import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
 
 // TODO: update this with backend
 var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];

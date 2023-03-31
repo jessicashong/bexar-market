@@ -5,7 +5,7 @@ import './style.css';
 
 function BusinessProductList() {
 
-    return (
+    return (/*
         <div>
             <h2>Your Products</h2>
             {state.products.length ? (
@@ -26,7 +26,7 @@ function BusinessProductList() {
                         <h3>No products added to your store, use the Add Product button to stock your store!</h3>
                     )}
         </div>
-    )
+    */console.log('businessproductlist'))
 }
 
 export default BusinessProductList;

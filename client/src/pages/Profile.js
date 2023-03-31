@@ -1,40 +1,31 @@
 import React from 'react';
-import Auth from "../../utils/auth";
+import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 import BusinessProductList from '../components/BusinessProductList';
 import UserFavoriteList from '../components/UserFavoriteList';
-// Import style.css to include tailwind directives
-import './style.css';
 
 function Profile() {
 
+    const business = true
+    const loggedIn = true
+
     function showProfile() {
-        if (Auth.loggedIn()) {
-            if (type === business) {
+        if (/*Auth.loggedIn()*/loggedIn) {
+            if (business === true) {
                 return (
                     <div>
-                        <h2>Hello, {businessName}</h2>
+                        <h2>Hello, businessName</h2>
                         <div className='updateButtons'>
-                            <button>Update Business Name</button>
-                            <button>Update Business Email</button>
-                            <button>Update Password</button>
-                            <button>Update Business Image</button>
-                            <button>Update Business Description</button>
                             <button>Add Product</button>
                         </div>
-                        <BusinessProductList />
+                        {/*<BusinessProductList />*/}
                     </div>
                 )
             } else {
                 return (
                     <div>
-                        <h2>Hello, {username}</h2>
-                        <div className='updateButtons'>
-                            <button>Update Username</button>
-                            <button>Update Email</button>
-                            <button>Update Password</button>
-                        </div>
-                        <UserFavoriteList />
+                        <h2>Hello, username</h2>
+                        {/*<UserFavoriteList />*/}
                     </div>
                 )
             }

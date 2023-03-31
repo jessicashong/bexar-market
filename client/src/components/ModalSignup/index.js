@@ -12,7 +12,7 @@ const Modal = ({ isVisible, onClose }) => {
 
     // when this function is called, redirect the page to the home page
     const navigateHome = () => {
-        navigate('/home');
+        navigate('/');
     }
     const navigateSignup = () => {
         navigate('/signup');

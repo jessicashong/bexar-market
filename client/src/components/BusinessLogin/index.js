@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Auth from "../../utils/auth";
-import { useMutation } from '@apollo/client';
-import { BUSINESS_LOGIN } from '../utils/mutations';
+//import { useMutation } from '@apollo/client';
+//import { BUSINESS_LOGIN } from '../utils/mutations';
 
 // Import style.css to include tailwind directives
 import './style.css';
 
 function BusinessLogin() {
 
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    /*const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(BUSINESS_LOGIN);
 
     const handleFormSubmit = async (event) => {
@@ -30,13 +30,13 @@ function BusinessLogin() {
       ...formState,
       [name]: value,
     });
-  };
-    
+  };*/
+    //<form onSubmit={handleFormSubmit}>
 
     return (
     <div className="container my-1">
       <h2>Business Login</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form >
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
@@ -44,7 +44,7 @@ function BusinessLogin() {
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
+            //onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -54,14 +54,14 @@ function BusinessLogin() {
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
+            //onChange={handleChange}
           />
         </div>
-        {error ? (
+        {/*{error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
-        ) : null}
+        ) : null}*/}
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
