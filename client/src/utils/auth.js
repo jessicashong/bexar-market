@@ -1,10 +1,10 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-  loggedIn() {
+  /*loggedIn() {
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
-  }
+  }*/
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
