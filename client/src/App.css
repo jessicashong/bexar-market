@@ -5,8 +5,10 @@
 
 nav {
     display: flex;
-    width: 15vw;
+    width: 10vw;
     justify-content: center;
+    margin: .5rem;
+    font-size: 1.5rem;
 }
 
 nav ul {
@@ -30,9 +32,14 @@ nav ul {
     font-size: 1.5rem;
 }
 
+.header h2:hover, nav a:hover {
+    background-color: #555;
+}
+
 .left-nav {
     display: flex;
-    width: 25vw;
+    width: 20vw;
     justify-content: space-between;
     align-items: center;
+    margin: .5rem;
 }
