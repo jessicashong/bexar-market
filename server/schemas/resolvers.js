@@ -7,16 +7,20 @@ const resolvers = {
     categories: async () => {
       return await Category.find();
     },
+
     products: async () => {
       return await Product.find();
     },
+
     product: async (parent, { _id }) => {
       console.log(_id);
       return await Product.findById(_id);
     },
+
     businesses: async () => {
       return await Business.find().populate('category').populate('products');
     },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
@@ -24,29 +28,23 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in.');
     }
   },
+
   Mutation: {
     addUser: async (parent, { userName, email, password }) => {
       const user = await User.create({ userName, email, password });
       const token = signToken(user);
       return { token, user };
     },
-    // updateUser: async (parent, { userName, email, password }, context) => {
+
+    // updateUser: async (parent, args, context) => {
     //   if (context.user) {
-    //     const user = await User.findByIdAndUpdate(context.user._id, {
-    //       userName,
-    //       email,
-    //       password
-    //     },
-    //     {
+    //     return User.findbyIdAndUpdate(context.user.id, args, {
     //       new: true,
-    //       runValidators: true
     //     });
-    //     console.log('UPDATEUSER:', user);
-    //     const token = signToken(user);
-    //     return { token, user };
     //   }
     //   throw new AuthenticationError('You need to be logged in.');
     // },
+
     addProduct: async (parent, { productName, description, image, price, quantity }, context) => {
       if (context.user) {
         console.log(productName);
@@ -66,6 +64,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
+
     // updateProduct: async (parent, { productId, productName, description, image, price, quantity }, context) => {
     //   if (context.product) {
     //     const product = await Product.findOneAndUpdate(productId, {
@@ -89,6 +88,7 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError('You must be logged in as a business.');
     // },
+
     deleteProduct: async (parent, { productId }, context) => {
       if (context.user) {
         const product = await Product.findOneAndDelete({
@@ -102,17 +102,20 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
+
     addBusiness: async (parent, args) => {
       const business = await Business.create(args);
       const token = signToken(business);
       return { token, business };
     },
+
     updateBusiness: async (parent, args, context) => {
       if (context.business) {
         return await Business.findByIdAndUpdate(context.business._id, args, { new: true });
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
+
     addFavorite: async (parent, { productId }, context) => {
       if (context.user) {
         const product = await Product.findById(productId);
@@ -123,6 +126,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
+
     deleteFavorite: async (parent, { productId }, context) => {
       if (context.user) {
         const delfavorites = await User.findOneAndUpdate(
@@ -134,6 +138,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       console.log('LOGIN:', user);
@@ -148,6 +153,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     businessLogin: async (parent, { email, password }) => {
       const business = await Business.findOne({ email });
 
@@ -155,7 +161,6 @@ const resolvers = {
         console.log(business);
         throw new AuthenticationError('Incorrect business email or password.');
       }
-
       const correctPw = await business.isCorrectPassword(password);
       if (!correctPw) {
         console.log('password:', correctPw);

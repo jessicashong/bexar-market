@@ -1,0 +1,3 @@
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const UPDATE_BUSINESS = 'UPDATE_BUSINESS';
