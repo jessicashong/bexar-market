@@ -64,7 +64,8 @@ const [showModal, setShowModal] = useState(false);
     }
   
     return (
-      <header className="flex-row px-1">
+      <header className="header">
+        <div className='left-nav'>
         <h1>
           <Link to="/">
             Home
@@ -80,6 +81,7 @@ const [showModal, setShowModal] = useState(false);
             Search
           </Link>
         </h2>
+        </div>
   
         <nav>
           {showNavigation()}
