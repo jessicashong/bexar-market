@@ -1,6 +1,7 @@
 // Import style.css to include tailwind directives
 import './style.css';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 // import { Button } from "@material-tailwind/react";
 //import { useMutation } from '@apollo/client';
 //import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
@@ -18,6 +19,18 @@ function Signup() {
     // STATE VARIABLES
     const [formState, setFormState] = useState({ fullname: '', email: '', password: '', confirmPassword: '' });
 
+
+    const handleSubmit = (event) => {
+        // event.preventDefault();
+        console.log("FORM SUBMITTED")
+    }
+
+    const navigate = useNavigate();
+
+    const navigateHome = () => {
+        navigate('/');
+    }
+
     // EVENT HANDLER BLOCK
     // When an form field is changed, update the formState
     const handleFormChange = (event) => {
@@ -32,18 +45,18 @@ function Signup() {
     <>
 
     <div className="bg-grey-lighter min-h-screen flex flex-col">
-        <div className="mx-auto flex-1 flex flex-row items-center justify-center px-2 text-grey-dark mt-6 bg-white px-6 py-8 rounded shadow-md text-black w-full border border-red-700">
+        <div className="mx-auto flex-1 flex flex-row items-center justify-center text-grey-dark mt-6 bg-white py-4 rounded shadow-md text-black w-full text-2xl border border-red">
                 Already have an account?  
-                <a className="no-underline border-b border-blue text-blue" href="../login/">
+                <a className=" mx-4 hover:underline" href="../login/">
                     Log in
-                </a>.
+                </a>
         </div>
-            <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+            <div className="container max-w-md mx-auto flex-1 flex flex-row items-center justify-center px-2">
 
                 {/* USER SIGNUP */}
-                <form className="bg-white px-6 py-8 rounded shadow-md text-black w-full border border-red-700">
+                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%] min-w-[100%] border ">
                     <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
-                    <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-4'>
+                    <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-9'>
                         {/* change all these inputs to Form.Group ; see booksearch SignupForm.js */}
                     <input 
                         type="text"
@@ -103,15 +116,20 @@ function Signup() {
                         <button
                             type="submit"
                             className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                            onClick ={ () => {
+                                handleSubmit();
+                                navigateHome();
+                            }
+                        }
                         >Submit User Account</button>
                     </div>
                 </form>
                 
                 {/* BUSINESS SIGNUP */}
-                <form className="bg-white px-6 py-8 rounded shadow-md text-black w-full border border-red-700 m-5">
+                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%] min-w-[100%] border  m-5">
                     <h1 className="mb-8 text-3xl text-center">Create Business Account</h1>
                     <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-4'>
-                        {/* change all these inputs to Form.Group ; see booksearch SignupForm.js */}
+                        {/* Require these inputs!! */}
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -140,7 +158,10 @@ function Signup() {
                         onChange={handleFormChange}/>
                     <input 
                         type="file"
+                        id="image-file"
+                        className='mb-4'
                          />
+
 
                     {/* loops through the categories array to create checkbox */}
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
@@ -175,6 +196,11 @@ function Signup() {
                         <button
                             type="submit"
                             className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                            onClick ={ () => {
+                                handleSubmit();
+                                navigateHome();
+                            }
+                        }
                         >Submit Business Account</button>
                     </div>
                 </form>
