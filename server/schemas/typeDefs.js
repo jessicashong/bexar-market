@@ -83,7 +83,7 @@ const typeDefs = gql`
     addBusiness(businessName: String!, email: String!, password: String!): BusinessAuth
     updateBusiness(business: BusinessInput): Business
     addFavorite(productId: ID, productName: String): User
-    deleteFavorite(favoriteId: ID!): User
+    deleteFavorite(productId: ID!): User
     login(email: String!, password: String!): Auth
     businessLogin(email: String!, password: String!): BusinessAuth
   }
