@@ -123,14 +123,14 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
-    deleteFavorite: async (parent, { _id }, context) => {
+    deleteFavorite: async (parent, { productId }, context) => {
       if (context.user) {
-        const favorites = await User.findOneAndUpdate(
+        const delfavorites = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { favorites: { _id: _id } } },
-          { new: true }
+          { $pull:  { favorites: { _id:  productId } } },
+          { new: true, runValidators: true }
         );
-        return favorites;
+        return delfavorites;
       }
       throw new AuthenticationError('You must be logged in.');
     },
