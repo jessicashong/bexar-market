@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Business, Favorites } = require('../models');
+const { User, Product, Category, Business } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -35,7 +35,7 @@ const resolvers = {
           description: description,
           image: image,
           price: price,
-          quantity: quantity })
+          quantity: quantity });
         const addProduct = await Business.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { products: product } },
@@ -70,23 +70,18 @@ const resolvers = {
     },
     deleteProduct: async (parent, { productId }, context) => {
       if (context.user) {
-        console.log('1st user', context.user);
-        console.log('1st prod', productId);
         const product = await Product.findOneAndDelete({
           _id: productId
         });
-        console.log('2nd user', context.user._id);
-        console.log('2nd prod', product);
-        await Business.findOneAndUpdate(
+        return await Business.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { products: product._id } },
+          { $pull: { products: product } },
           { new: true, runValidators: true }
         );
-        return product;
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
-    addBusiness: async (parent, args, context) => {
+    addBusiness: async (parent, args) => {
       const business = await Business.create(args);
       const token = signToken(business);
       return { token, business };
