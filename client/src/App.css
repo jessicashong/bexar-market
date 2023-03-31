@@ -23,6 +23,11 @@ nav ul {
     align-items: center;
 }
 
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
 .header {
     display: flex;
     background-color: #333;
