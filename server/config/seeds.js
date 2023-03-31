@@ -100,6 +100,7 @@ db.once('open', async () => {
     userName: 'Lydia',
     email: 'lydia@email.com',
     password: 'password1234',
+    favorites: [products[0]],
   });
 
   await User.create({
