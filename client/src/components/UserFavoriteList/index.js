@@ -5,7 +5,7 @@ import './style.css';
 
 function UserFavoriteList() {
 
-    return (
+    return (/*
         <div>
             <h2>Your Favorited Products</h2>
             {state.products.length ? (
@@ -26,7 +26,7 @@ function UserFavoriteList() {
                         <h3>No products added to your favorites, browse our wares to find products you like!</h3>
                     )}
         </div>
-    )
+    */console.log('userfavoritelist'))
 }
 
 export default UserFavoriteList;
