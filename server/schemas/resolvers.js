@@ -29,38 +29,19 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    updateUser: async (parent, { userName, email, password }, context) => {
-      if (context.user) {
-        const user = await User.findByIdAndUpdate(context.user._id, {
-          userName,
-          email,
-          password
-        },
-        {
-          new: true,
-          runValidators: true
-        });
-        console.log('UPDATEUSER:', user);
-        const token = signToken(user);
-        return { token, user };
-      }
-      throw new AuthenticationError('You need to be logged in.');
-    },
     addProduct: async (parent, { productName, description, image, price, quantity }, context) => {
       if (context.user) {
-        const product = await Product.create({
-          productName,
-          description,
-          image,
-          price,
-          quantity
-        });
-        await Business.findOneAndUpdate(
+        const product = await Product.create({ productName: productName,
+          description: description,
+          image: image,
+          price: price,
+          quantity: quantity })
+        const addProduct = await Business.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { products: product } },
-          { new: true, runValidators: true }
+          { new: true }
         );
-        return product;
+        return addProduct;
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
@@ -117,14 +98,11 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in as a business.');
     },
     addFavorite: async (parent, { productId }, context) => {
-      console.log(context.user);
+      console.log(context.user._id);
       if (context.user) {
-        const favorites = await Favorites.create(
-          { _id: productId },
-        );
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { favorites: [favorites] } },
+        const product = Product.findById(productId);
+        const favorites = await User.findOneAndUpdate(context.user._id,
+          { $addToSet: { favorites: product } },
           { new: true, runValidators: true }
         );
         console.log('favorites:', favorites);
@@ -147,12 +125,12 @@ const resolvers = {
       const user = await User.findOne({ email });
       console.log('LOGIN:', user);
       if (!user) {
-        throw new AuthenticationError('Incorrect username or password.');
+        throw new AuthenticationError('Incorrect email or password.');
       }
 
       const correctPw = await user.isCorrectPassword(password);
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect username or password.');
+        throw new AuthenticationError('Incorrect email or password.');
       }
       const token = signToken(user);
       return { token, user };
@@ -162,13 +140,13 @@ const resolvers = {
 
       if (!business) {
         console.log(business);
-        throw new AuthenticationError('Incorrect business name or password.');
+        throw new AuthenticationError('Incorrect business email or password.');
       }
 
       const correctPw = await business.isCorrectPassword(password);
       if (!correctPw) {
         console.log(correctPw);
-        throw new AuthenticationError('Incorrect business name or password.');
+        throw new AuthenticationError('Incorrect business email or password.');
       }
       const token = signToken(business);
       return { token, business };
