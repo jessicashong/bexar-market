@@ -4,7 +4,7 @@ import BusinessList from "../components/BusinessList"
 function Home() {
     return (
       <div className="container">
-        <BusinessList />
+        {/*<BusinessList />*/}
       </div>
     );
   };

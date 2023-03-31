@@ -5,7 +5,7 @@ import './style.css';
 
 function ProductList() {
 
-    return (
+    return (/*
         <div>
             <h2>Our Products</h2>
             {state.products.length ? (
@@ -26,7 +26,7 @@ function ProductList() {
                         <h3>This store has not added any products yet, check back later!</h3>
                     )}
         </div>
-    )
+    */console.log('productlist'))
 }
 
 export default ProductList;

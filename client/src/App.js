@@ -54,8 +54,8 @@ function App() {
                 element={<Login />}
               />
               <Route 
-                path="/modalSignup" 
-                element={<Modal />}
+                path="/signup" 
+                element={<Signup />}
               />
               <Route 
                 path="/profile" 
@@ -69,10 +69,10 @@ function App() {
                 path="/business" 
                 element={<Business />}
               />
-              <Route 
+              {/*<Route 
                 path="/search" 
                 element={<Search />}
-              />
+              />*/}
             </Routes>
           </div>
         </Router>

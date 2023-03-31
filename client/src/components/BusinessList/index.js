@@ -9,7 +9,7 @@ function BusinessList() {
 
   
 
-  return (
+  return (/*
     <div>
       <h2>Bexar Market Businesss</h2>
         {state.businesses.length ? (
@@ -29,7 +29,7 @@ function BusinessList() {
           <h3>All our businesses have been deleted! Help!</h3>
         )}
       </div>
-    )
+    */console.log('businesslist'))
 }
 
 export default BusinessList;
