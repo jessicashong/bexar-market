@@ -77,12 +77,11 @@ const resolvers = {
         });
         console.log('2nd user', context.user._id);
         console.log('2nd prod', product);
-        await Business.findOneAndUpdate(
+        return await Business.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { products: product._id } },
+          { $pull: { products: product } },
           { new: true, runValidators: true }
         );
-        return product;
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
