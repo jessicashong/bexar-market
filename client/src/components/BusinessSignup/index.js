@@ -2,11 +2,10 @@
 import './style.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+// import { Button } from "@material-tailwind/react";
 import { useMutation } from '@apollo/client';
 import { ADD_BUSINESS } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-// import { Button } from "@material-tailwind/react";
-//import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
 
 // TODO: update this with backend
 var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
@@ -19,52 +18,40 @@ var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 function BusinessSignup() {
 
     // STATE VARIABLES
-    const [businessFormData, setBusinessFormData] = useState({ businessName: '', email: '', password: '', confirmPassword: '' });
-    const [validated] = useState(false);
-    const [addBusiness, { error, data }] = useMutation(ADD_BUSINESS);
+    const [formState, setFormState] = useState({ businessName: '', email: '', password: '', confirmPassword: '' });
+    const [addBusiness] = useMutation(ADD_BUSINESS);
 
-
-    // EVENT HANDLER BLOCK
-    // When an form field is changed, update the formState
-    const handleFormChange = (event) => {
-        const { name, value } = event.target;
-        setBusinessFormData({
-            ...businessFormData,
-            [name]: value,
-        });
-    };
-
-    // HANDLE FORM SUBMIT
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        try {
-            const { data } = await addBusiness({
-                variables: { ...businessFormData},
-            });
-            Auth.login(data.addBusiness.token);
-        } catch (err) {
-            console.error(err);
-        }
-        setBusinessFormData({
-            businessName: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
+        const { data } = await addBusiness ({
+            variables: { ...formState },
         });
-        console.log("FORM SUBMITTED")
+        Auth.login(data.addBusiness.token);
+        console.log("FORM SUBMITTED");
+        setFormState({
+            businessName: '', 
+            email: '', 
+            password: '', 
+            confirmPassword: ''
+        })
     };
+    
 
     const navigate = useNavigate();
 
     const navigateHome = () => {
         navigate('/');
     }
+
+    // EVENT HANDLER BLOCK
+    // When an form field is changed, update the formState
+    const handleFormChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+        };
 
     return (
     <>
@@ -114,16 +101,28 @@ function BusinessSignup() {
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
                       {/* TODO: MAKE THIS REQUIRED */}
                         <h3 className="italic text-center mb-4">What categories do you sell?</h3>
-                            <select
-                                onChange={(e) => setNewStudentMajor(e.target.value)}
-                                value={newStudentMajor}>
-                                <option>Choose major...</option>
-                                {majors.map((major) => (
-                                <option key={major} value={major}>
-                                    {major}
-                                </option>
-                                ))}
-                            </select>
+                        {categories.map((categoryName, i) => {
+                            return (
+                                // add key here in case this specific item changes, then jsx knows to only change that    specific element
+                                // make sure to use the category id from the typeDef(?)
+                                <div key={i}>
+                                    <input
+                                    className=" flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
+                                    type="checkbox"
+                                    value=""
+                                    id="checkboxDefault" 
+                                    
+                                    />
+                                    <label
+                                    className="flex-row pl-[0.15rem] hover:cursor-pointer"
+                                    htmlFor="checkboxDefault"
+                                    
+                                    >
+                                    {categoryName}
+                                    </label>
+                                </div> 
+                            );
+                        })}
                     </div>
                     </div>
                     
