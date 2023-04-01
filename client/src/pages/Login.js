@@ -6,7 +6,7 @@ function Login() {
 
 
     return (
-        <div>
+        <div className="items-center justify-center">
             <UserLogin />
             <BusinessLogin />
         </div>
@@ -14,3 +14,5 @@ function Login() {
 }
 
 export default Login;
+
+

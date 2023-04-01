@@ -45,16 +45,16 @@ function Signup() {
     <>
 
     <div className="bg-grey-lighter min-h-screen flex flex-col">
-        <div className="mx-auto flex-1 flex flex-row items-center justify-center text-grey-dark mt-6 bg-white py-4 rounded shadow-md text-black w-full text-2xl border border-red">
+        <div className="mx-auto flex-1 flex flex-row items-center justify-center text-grey-dark mt-6 bg-white py-4 rounded shadow-md text-black w-full text-2xl border">
                 Already have an account?  
                 <a className=" mx-4 hover:underline" href="../login/">
                     Log in
                 </a>
         </div>
-            <div className="container max-w-md mx-auto flex-1 flex flex-row items-center justify-center px-2">
+            <div className="container max-w-md mx-auto flex-1 flex flex-row items-center justify-center px-2 border border-red-800">
 
                 {/* USER SIGNUP */}
-                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%] min-w-[100%] border ">
+                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%] min-w-fit border ">
                     <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
                     <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-9'>
                         {/* change all these inputs to Form.Group ; see booksearch SignupForm.js */}
@@ -66,7 +66,7 @@ function Signup() {
                         onChange={handleFormChange}/>
 
                     <input 
-                        type="text"
+                        type="email"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email" 
@@ -126,7 +126,7 @@ function Signup() {
                 </form>
                 
                 {/* BUSINESS SIGNUP */}
-                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%] min-w-[100%] border  m-5">
+                <form className="bg-white px-6 py-8 rounded shadow-md text-black  border  m-5">
                     <h1 className="mb-8 text-3xl text-center">Create Business Account</h1>
                     <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-4'>
                         {/* Require these inputs!! */}

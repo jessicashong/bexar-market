@@ -35,12 +35,13 @@ function UserLogin() {
     
 
     return (
-    <div className="container my-1">
-      <h2>User Login</h2>
-      <form >
+    <div className="container my-5 mx-auto flex flex-col border border-red-700 items-center mb-10">
+      <h2 className='text-2xl'>User Login</h2>
+      <form className='flex flex-col border px-6 py-8 min-w-[30%] max-w-[80%] rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
+            className='block border border-grey-light p-2 rounded mb-4'
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -51,6 +52,7 @@ function UserLogin() {
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
+            className='block border border-grey-light p-2 rounded mb-4'
             placeholder="******"
             name="password"
             type="password"
