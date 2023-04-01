@@ -22,7 +22,7 @@ const [showModal, setShowModal] = useState(false);
                 Profile
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
               <a href="/" onClick={() => Auth.logout()}>
                 Logout
@@ -73,7 +73,7 @@ const [showModal, setShowModal] = useState(false);
           </Link>
         </h1>
         <h2>
-          <Link to="/about">
+          <Link to="/about" className='mx-5'>
             About
           </Link>
         </h2>

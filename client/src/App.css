@@ -12,7 +12,7 @@
 
 nav {
     display: flex;
-    width: 10vw;
+    width: fit-content;
     justify-content: center;
     margin: .5rem;
     font-size: 1.5rem;
@@ -51,7 +51,7 @@ nav ul {
 
 .left-nav {
     display: flex;
-    width: 20vw;
+    width: fit-content;
     justify-content: space-between;
     align-items: center;
     margin: .5rem;
