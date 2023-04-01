@@ -37,7 +37,7 @@ function BusinessLogin() {
   return (
     <div className="container my-1 m-auto px-2 flex flex-col items-center">
       <h2 className='text-2xl'>Business Login</h2>
-      <form onSubmit={handleFormSubmit} className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
+      <form className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
@@ -66,7 +66,7 @@ function BusinessLogin() {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button
+          <button onClick={handleFormSubmit} 
             type="submit"
             className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
           >Submit
