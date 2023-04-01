@@ -11,7 +11,7 @@ function Nav() {
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
 
-  const loggedIn = true
+  const loggedIn = false
 
     function showNavigation() {
       if (/*Auth.loggedIn()*/loggedIn) {
@@ -22,7 +22,7 @@ const [showModal, setShowModal] = useState(false);
                 Profile
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
               <a href="/" onClick={() => Auth.logout()}>
                 Logout
@@ -38,7 +38,7 @@ const [showModal, setShowModal] = useState(false);
                 Login
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
                 {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
@@ -73,7 +73,7 @@ const [showModal, setShowModal] = useState(false);
           </Link>
         </h1>
         <h2>
-          <Link to="/about">
+          <Link to="/about" className='mx-5'>
             About
           </Link>
         </h2>
