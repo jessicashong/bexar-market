@@ -11,10 +11,8 @@ function Nav() {
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
 
-  const loggedIn = false
-
     function showNavigation() {
-      if (/*Auth.loggedIn()*/loggedIn) {
+      if (Auth.loggedIn()) {
         return (
           <ul className="flex-row">
             <li className="mx-1">
