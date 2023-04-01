@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
 // Import style.css to include tailwind directives
 import './style.css';
+import logo from "../../assets/logo512.png"
 
 function Nav() {
 
@@ -64,10 +65,11 @@ const [showModal, setShowModal] = useState(false);
     }
   
     return (
-      <header className="flex-row px-1">
+      <header className="header">
+        <div className='left-nav'>
         <h1>
           <Link to="/">
-            Home
+            <img className='logo' src={logo} alt="Bexar Market Logo"></img>
           </Link>
         </h1>
         <h2>
@@ -80,6 +82,7 @@ const [showModal, setShowModal] = useState(false);
             Search
           </Link>
         </h2>
+        </div>
   
         <nav>
           {showNavigation()}
