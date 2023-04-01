@@ -38,7 +38,7 @@ const [showModal, setShowModal] = useState(false);
                 Login
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
                 {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
