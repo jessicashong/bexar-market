@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
 // Import style.css to include tailwind directives
 import './style.css';
+import logo from "../../assets/logo512.png"
 
 function Nav() {
 
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
 
-  const loggedIn = true
+  const loggedIn = false
 
     function showNavigation() {
       if (/*Auth.loggedIn()*/loggedIn) {
@@ -21,7 +22,7 @@ const [showModal, setShowModal] = useState(false);
                 Profile
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
               <a href="/" onClick={() => Auth.logout()}>
                 Logout
@@ -37,7 +38,7 @@ const [showModal, setShowModal] = useState(false);
                 Login
               </Link>
             </li>
-            <li> | </li>
+            <li className="mx-3"> | </li>
             <li className="mx-1">
                 {/* // TODO: if person clicks USER or BUSINESS, setShowModal(false) && link to signup
                 // else, simply setShowModal(false)
@@ -64,14 +65,15 @@ const [showModal, setShowModal] = useState(false);
     }
   
     return (
-      <header className="flex-row px-1">
+      <header className="header">
+        <div className='left-nav'>
         <h1>
           <Link to="/">
-            Home
+            <img className='logo' src={logo} alt="Bexar Market Logo"></img>
           </Link>
         </h1>
         <h2>
-          <Link to="/about">
+          <Link to="/about" className='mx-5'>
             About
           </Link>
         </h2>
@@ -80,6 +82,7 @@ const [showModal, setShowModal] = useState(false);
             Search
           </Link>
         </h2>
+        </div>
   
         <nav>
           {showNavigation()}

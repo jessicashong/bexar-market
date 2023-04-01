@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 function About() {
 
     return (
-        <div>
-            <div>
+        <div className='about'>
+            <div className='mission'>
                 <h2>Our Mission</h2>
                 <p>[Mission Statement]</p>
             </div>
-            <div>
+            <div className='contributors'>
                 <ul>
                     <li>Chloe</li>
                     <li>Jessica</li>
