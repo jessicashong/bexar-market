@@ -34,9 +34,9 @@ function BusinessLogin() {
     //<form onSubmit={handleFormSubmit}>
 
     return (
-    <div className="container my-1 m-auto flex flex-col items-center">
+    <div className="container my-1 m-auto px-2 flex flex-col items-center">
       <h2 className='text-2xl'>Business Login</h2>
-      <form className='flex flex-col border px-6 py-8 min-w-[30%] max-w-[80%] rounded shadow-md items-center'>
+      <form className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input

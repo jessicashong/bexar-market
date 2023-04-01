@@ -36,8 +36,8 @@ function UserLogin() {
 
     return (
     <div className="container my-5 mx-auto flex flex-col items-center mb-10">
-      <h2 className='text-2xl'>User Login</h2>
-      <form className='flex flex-col border px-6 py-8 min-w-[30%] max-w-[80%] rounded shadow-md items-center'>
+      <h2 className='text-2xl mt-5'>User Login</h2>
+      <form className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
