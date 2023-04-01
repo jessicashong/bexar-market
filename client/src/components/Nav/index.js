@@ -78,7 +78,7 @@ const [showModal, setShowModal] = useState(false);
           </Link>
         </h2>
         <h2>
-          <Link to="/search">
+          <Link to="/search" className='mx-5'>
             Search
           </Link>
         </h2>
