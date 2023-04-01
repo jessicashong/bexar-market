@@ -18,11 +18,21 @@ var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 function UserSignup() {
 
     // STATE VARIABLES
-    const [formState, setFormState] = useState({ fullname: '', email: '', password: '', confirmPassword: '' });
+    const [formState, setFormState] = useState({ userName: '', email: '', password: '', confirmPassword: '' });
+    const [addUser] = useMutation(ADD_USER);
 
-
-    const handleSubmit = (event) => {
-        // event.preventDefault();
+    const handleSubmit = async (event) => {
+        // event.preventDefault(event);
+        const addUserResponse = await addUser ({
+            variables: {
+                userName: formState.userName,
+                email: formState.email,
+                password: formState.password,
+                confirmPassword: formState.confirmPassword,
+            },
+        });
+        const token = addUserResponse.data.addUser.token;
+        Auth.login(token);
         console.log("FORM SUBMITTED")
     }
 
@@ -56,8 +66,8 @@ function UserSignup() {
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="fullname"
-                        placeholder="Full Name" 
+                        name="userName"
+                        placeholder="Username" 
                         onChange={handleFormChange}/>
 
                     <input 
@@ -112,11 +122,7 @@ function UserSignup() {
                         <button
                             type="button"
                             className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                            onClick ={ () => {
-                                handleSubmit();
-                                navigateHome();
-                            }
-                        }
+                            onClick ={handleSubmit}
                         >Submit User Account</button>
                     </div>
                 </form>
