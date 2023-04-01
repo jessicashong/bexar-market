@@ -115,7 +115,7 @@ function Signup() {
                     <div>
                         <button
                             type="submit"
-                            className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                            className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                             onClick ={ () => {
                                 handleSubmit();
                                 navigateHome();
@@ -126,7 +126,7 @@ function Signup() {
                 </form>
                 
                 {/* BUSINESS SIGNUP */}
-                <form className="bg-white px-6 py-8 rounded shadow-md text-black  border  m-5">
+                <form className="bg-white px-6 py-8 rounded shadow-md text-black h-[100%]  border  m-5">
                     <h1 className="mb-8 text-3xl text-center">Create Business Account</h1>
                     <div className='flex flex-col border border-grey-light w-full p-3 rounded mb-4'>
                         {/* Require these inputs!! */}
