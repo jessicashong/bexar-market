@@ -3,8 +3,9 @@ import './style.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 // import { Button } from "@material-tailwind/react";
-//import { useMutation } from '@apollo/client';
-//import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_BUSINESS } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 // TODO: update this with backend
 var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
@@ -17,13 +18,24 @@ var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 function BusinessSignup() {
 
     // STATE VARIABLES
-    const [formState, setFormState] = useState({ fullname: '', email: '', password: '', confirmPassword: '' });
+    const [formState, setFormState] = useState({ businessName: '', email: '', password: '', confirmPassword: '' });
+    const [addBusiness] = useMutation(ADD_BUSINESS);
 
-
-    const handleSubmit = (event) => {
-        // event.preventDefault();
-        console.log("FORM SUBMITTED")
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const { data } = await addBusiness ({
+            variables: { ...formState },
+        });
+        Auth.login(data.addBusiness.token);
+        console.log("FORM SUBMITTED");
+        setFormState({
+            businessName: '', 
+            email: '', 
+            password: '', 
+            confirmPassword: ''
+        })
+    };
+    
 
     const navigate = useNavigate();
 
@@ -83,7 +95,7 @@ function BusinessSignup() {
                         type="file"
                         id="image-file"
                         className="block w-full rounded mb-4"
-                         />
+                        />
 
                     {/* loops through the categories array to create checkbox */}
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>

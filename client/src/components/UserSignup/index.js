@@ -3,8 +3,9 @@ import './style.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 // import { Button } from "@material-tailwind/react";
-//import { useMutation } from '@apollo/client';
-//import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 // TODO: update this with backend
 var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
@@ -109,7 +110,7 @@ function UserSignup() {
                     
                     <div>
                         <button
-                            type="submit"
+                            type="button"
                             className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                             onClick ={ () => {
                                 handleSubmit();
