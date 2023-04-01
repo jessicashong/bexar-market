@@ -11,7 +11,7 @@ function Nav() {
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
 
-  const loggedIn = true
+  const loggedIn = false
 
     function showNavigation() {
       if (/*Auth.loggedIn()*/loggedIn) {
