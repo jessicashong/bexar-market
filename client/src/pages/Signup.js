@@ -15,7 +15,7 @@ function Signup() {
     return (
 
         <>
-        <div className='container border border-red-700 m-auto' >
+        <div className='container m-auto' >
             <div className="mx-auto flex-1 flex flex-row items-center justify-center text-grey-dark m-6 bg-white py-4 rounded shadow-md text-black w-full text-2xl border">
                     Already have an account?  
                     <a className=" mx-4 hover:underline" href="../login/">
