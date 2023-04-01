@@ -39,6 +39,10 @@ nav ul {
     justify-content: space-between;
 }
 
+.modal-text p {
+    color: black;
+}
+
 .header h1 {
     display: flex;
     font-size: 3rem;
@@ -75,6 +79,7 @@ nav ul {
     height: 15vh;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
 }
 
 .mission h2 {
