@@ -22,11 +22,17 @@ function BusinessSignup() {
     const [addBusiness] = useMutation(ADD_BUSINESS);
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        const { data } = await addBusiness ({
-            variables: { ...formState },
+        // event.preventDefault();
+        const addBusResponse = await addBusiness ({
+            variables: {
+                businessName: formState.businessName,
+                email: formState.email,
+                password: formState.password,
+                confirmPassword: formState.confirmPassword,
+            },
         });
-        Auth.login(data.addBusiness.token);
+        const token = addBusResponse.data.addBusiness.token;
+        Auth.login(token);
         console.log("FORM SUBMITTED");
         setFormState({
             businessName: '', 
@@ -61,14 +67,14 @@ function BusinessSignup() {
                 
                 
                 {/* BUSINESS SIGNUP */}
-                <form className="flex flex-1 flex-col bg-white px-6 py-8 rounded shadow-md text-black min-w-fit border">
+                <form onSubmit={navigateHome} className="flex flex-1 flex-col bg-white px-6 py-8 rounded shadow-md text-black min-w-fit border">
                     <h1 className="mb-8 text-3xl text-center">Create Business Account</h1>
                     <div className='flex flex-col border border-grey-light p-3 rounded mb-4'>
                         {/* Require these inputs!! */}
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="business-name"
+                        name="businessName"
                         placeholder="Business Name" 
                         onChange={handleFormChange}/>
 
@@ -130,11 +136,7 @@ function BusinessSignup() {
                         <button
                             type="submit"
                             className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                            onClick ={ () => {
-                                handleSubmit();
-                                navigateHome();
-                            }
-                        }
+                            onClick ={handleSubmit}
                         >Submit Business Account</button>
                     </div>
                 </form>
