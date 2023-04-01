@@ -22,7 +22,6 @@ const Modal = ({ isVisible, onClose }) => {
     const handleClose = (e) => {
         if (e.target.id === 'wrapper') {
             onClose();
-            navigateHome();
         }
     }
 
@@ -38,14 +37,13 @@ const Modal = ({ isVisible, onClose }) => {
                 <button className='text-white text-xl place-self-end'
                 onClick={ () => {
                     onClose();
-                    navigateHome();
                     }
                 }
                 >
                     X
                 </button>
                 <div className='bg-white p-2 rounded'>
-                    <div>
+                    <div className='modal-text'>
                         <p className='text-xl text-center'>
                             Howdy, y'all!
                         </p>
