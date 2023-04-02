@@ -3,9 +3,6 @@ import Auth from "../../utils/auth";
 import { useMutation } from '@apollo/client';
 import { BUSINESS_LOGIN } from '../../utils/mutations';
 
-// Import style.css to include tailwind directives
-import './style.css';
-
 function BusinessLogin() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });

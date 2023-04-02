@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-// Import style.css to include tailwind directives
-import './style.css';
 
 function BusinessProductItem(product) {
 
