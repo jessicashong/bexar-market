@@ -23,10 +23,22 @@ function BusinessSignup() {
     const [isBusiness, setIsBusiness] = useState(true);
     // let isBusiness = true;
 
-    const formDisable = (userSelect) => {
-        if(userSelect)
-        return 'cursor-not-allowed';
+    const inputDisable = (userSelect) => {
+        if(userSelect) {
+            // return document.getElementsByClassName("form-input").disabled = userSelect;
+            // return 'cursor-not-allowed';
+            // return setIsBusiness(true);
+            return "disabled";
+        }
     }
+
+    const [place, setPlace] = useState("red");
+
+    const getPlace = () => {
+      if (place === "red") setPlace("blue");
+      else setPlace("red");
+    };
+  
 
     const handleSubmit = async (event) => {
         // event.preventDefault();
@@ -80,24 +92,29 @@ function BusinessSignup() {
                         {/* Require these inputs!! */}
                     <input 
                         type="text"
-                        className={`block border ${formDisable(isBusiness)} border-grey-light w-full p-3 rounded mb-4`}
+                        className={`form-input block border border-grey-light w-full p-3 rounded mb-4`}
                         name="businessName"
-                        placeholder="Business Name" 
-                        onChange={handleFormChange}/>
+                        placeholder= {place}
+                        onChange={handleFormChange}
+                        onClick={() => getPlace()}/>
 
                     <input 
                         type="email"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="business@email" 
-                        onChange={handleFormChange}/>
+                        disabled={inputDisable(isBusiness)}
+                        onChange={handleFormChange}
+                        // value enabled
+                        />
 
                     <input 
                         type="password"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        className={`block border border-grey-light w-full p-3 rounded mb-4`}
                         name="password"
-                        placeholder="Password" 
-                        onChange={handleFormChange}/>
+                        placeholder="Password"
+                        onChange={handleFormChange} 
+                        />
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"

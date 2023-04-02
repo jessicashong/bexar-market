@@ -1,11 +1,13 @@
 // Import style.css to include tailwind directives
 import './style.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate  } from "react-router-dom";
 
 // TODO: update modal to include Vendor vs Shopper buttons to redirect to Signup Page
 
 const Modal = ({ isVisible, onClose }) => {
+
+    const [isBusiness, setIsBusiness] = useState(false);
 
     // Create a variable that uses the useNavigate react function
     const navigate = useNavigate();
@@ -57,6 +59,7 @@ const Modal = ({ isVisible, onClose }) => {
                             className='bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 mb-4'
                             // when this button is clicked, set the modal to be true (modal appears)
                             onClick ={ () => {
+                                // if click here, set isBusiness TRUE; put props in BusinessSignup({ isBusiness })
                                 onClose();
                                 navigateSignup();
                                 }
@@ -68,6 +71,7 @@ const Modal = ({ isVisible, onClose }) => {
                                 className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                                 // when this button is clicked, set the modal to be true (modal appears)
                                 onClick ={ () => {
+                                    // if click here, set isBusiness FALSE; put props in userSignup({ isBusiness })
                                     onClose();
                                     navigateSignup();
                                     }

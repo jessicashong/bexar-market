@@ -27,7 +27,7 @@ function Signup() {
                     <UserSignup />
                 </div>
                 <div>
-                    <BusinessSignup />
+                    <BusinessSignup disable/>
                 </div>
             </div>
         </div>
