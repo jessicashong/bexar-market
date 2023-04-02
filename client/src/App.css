@@ -146,6 +146,11 @@ nav ul {
     height: 45rem;
 }
 
+.login-form {
+    width: 18rem;
+    height: 21rem;
+}
+
 
 @media screen and (max-width: 992px) {
     .nav-option {
