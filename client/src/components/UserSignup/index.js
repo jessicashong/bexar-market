@@ -47,11 +47,11 @@ function UserSignup({ isBusiness }) {
                     {/* USER SIGNUP */}
                     <form className="flex flex-1 flex-col bg-white px-6 py-8 rounded shadow-md text-black min-w-fit border">
                         <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
-                        <div className='flex flex-col border border-grey-light p-3 rounded mb-9'>
+                        <div className='flex flex-col border border-grey-light p-3 rounded mb-4'>
                             {/* Require these inputs!! */}
                             <input 
                                 type="text"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                className="form-input block border border-grey-light w-full p-3 rounded mb-4"
                                 name="userName"
                                 placeholder="Username" 
                                 onChange={handleFormChange}
@@ -82,14 +82,14 @@ function UserSignup({ isBusiness }) {
 
                             {/* loops through the categories array to create checkbox */}
                             <div className='block border border-grey-light w-full p-3 rounded mb-4'>
-                                <h3 className="italic mb-4">Optional: What categories are you interested in?</h3>
+                                <h3 className="italic text-center mb-4">Optional: What categories are you interested in?</h3>
                                 {categories.map((categoryName, i) => {
                                     return (
                                         // add key here in case this specific item changes, then jsx knows to only change that    specific element
                                         // make sure to use the category id from the typeDef(?)
                                         <div key={i}>
                                             <input
-                                                className=" flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
+                                                className="flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
                                                 type="checkbox"
                                                 value=""
                                                 id="checkboxDefault"
