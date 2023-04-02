@@ -60,7 +60,7 @@ function BusinessSignup() {
     return (
     <>
 
-    <div className="bg-grey-lighter flex flex-col m-5">
+    <div className="bg-grey-lighter flex flex-col m-5 signup-form">
             <div className="container max-w-md mx-auto flex-1 flex flex-row items-center px-2">
                 
                 

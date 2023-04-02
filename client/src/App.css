@@ -141,6 +141,11 @@ nav ul {
     background-color: #999;
 }
 
+.signup-form {
+    width: 26rem;
+    height: 45rem;
+}
+
 
 @media screen and (max-width: 992px) {
     .nav-option {

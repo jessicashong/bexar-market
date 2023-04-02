@@ -53,7 +53,7 @@ function UserSignup() {
     return (
     <>
 
-    <div className="bg-grey-lighter flex flex-col m-5">
+    <div className="bg-grey-lighter flex flex-col m-5 signup-form">
             <div className="container max-w-md mx-auto flex-1 flex flex-row items-center px-2">
 
                 {/* USER SIGNUP */}
@@ -90,7 +90,7 @@ function UserSignup() {
 
                     {/* loops through the categories array to create checkbox */}
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
-                        <h3 className="italic mb-4">Optional: What categories are you interested in?</h3>
+                        <h3 className="italic text-center mb-4">Optional: What categories are you interested in?</h3>
                         {categories.map((categoryName, i) => {
                             return (
                                 // add key here in case this specific item changes, then jsx knows to only change that    specific element
