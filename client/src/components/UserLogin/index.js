@@ -46,7 +46,7 @@ function UserLogin() {
             placeholder="youremail@test.com"
             name="email"
             type="email"
-            id="email"
+            id="useremail"
             onChange={handleChange}
           />
         </div>
@@ -56,7 +56,7 @@ function UserLogin() {
             className='block border border-grey-light p-2 rounded mb-4'
             placeholder="******"
             name="password"
-            type="password"
+            type="userpassword"
             id="pwd"
             onChange={handleChange}
           />
