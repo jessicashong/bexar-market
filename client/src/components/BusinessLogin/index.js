@@ -9,15 +9,15 @@ import './style.css';
 function BusinessLogin() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(BUSINESS_LOGIN);
+  const [businessLogin, { error }] = useMutation(BUSINESS_LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await login({
+      const mutationResponse = await businessLogin({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.login.token;
+      const token = mutationResponse.data.businessLogin.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
@@ -45,7 +45,7 @@ function BusinessLogin() {
             placeholder="youremail@test.com"
             name="email"
             type="email"
-            id="email"
+            id="businessemail"
             onChange={handleChange}
           />
         </div>
@@ -56,7 +56,7 @@ function BusinessLogin() {
             placeholder="******"
             name="password"
             type="password"
-            id="pwd"
+            id="businesspwd"
             onChange={handleChange}
           />
         </div>
