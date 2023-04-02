@@ -3,7 +3,7 @@ import Modal from "../components/ModalSignup/index.js"
 import UserLogin from "../components/UserLogin";
 import BusinessLogin from "../components/BusinessLogin";
 
-function Login() {
+function Login({ isBusiness, setIsBusiness }) {
 
     // create state for Modal
     const [showModal, setShowModal] = useState(false);
@@ -18,6 +18,8 @@ function Login() {
                 onClick={ (e) => {
                     e.preventDefault();
                     setShowModal(true);
+                    isBusiness={isBusiness};
+                    setIsBusiness={setIsBusiness};
                     }
                 }>
                     Signup
@@ -25,10 +27,13 @@ function Login() {
                 <Modal 
                     isVisible ={showModal} 
                     onClose={() => {
-                    setShowModal(false);
+                        setShowModal(false);
+                        }
                     }
-                }>
-                </Modal>
+                    isBusiness={isBusiness}
+                    setIsBusiness={setIsBusiness}
+                ></Modal>
+
             </div>
             <div className="flex flex-wrap items-center justify-center">
                 <div>

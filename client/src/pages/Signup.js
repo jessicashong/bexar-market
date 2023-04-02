@@ -9,8 +9,7 @@ import UserSignup from '../components/UserSignup';
 // import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
 
 
-function Signup() {
-
+function Signup({ isBusiness }) {
 
     return (
 
@@ -24,10 +23,8 @@ function Signup() {
             </div>
             <div className="flex flex-wrap items-center justify-center">
                 <div >
-                    <UserSignup />
-                </div>
-                <div>
-                    <BusinessSignup disable/>
+                    {console.log("isBusiness is set to: " + isBusiness)}
+                    {isBusiness === true ? <BusinessSignup/> : <UserSignup/>}
                 </div>
             </div>
         </div>
