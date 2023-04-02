@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
 import logo from "../../assets/logo512.png"
 
-function Nav() {
+function Nav({ isBusiness, setIsBusiness }) {
 
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
@@ -52,7 +52,10 @@ const [showModal, setShowModal] = useState(false);
                   onClose={() => {
                     setShowModal(false);
                     }
-                }>
+                  }
+                  isBusiness={isBusiness}
+                  setIsBusiness={setIsBusiness}
+                  >
                 </Modal>
             </li>
           </ul>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -39,11 +39,16 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  const [isBusiness, setIsBusiness] = useState(false);
+
     return (
       <ApolloProvider client={client}>
         <Router>
           <div className='main'>
-            <Nav />
+            <Nav 
+              isBusiness={isBusiness}
+              setIsBusiness={setIsBusiness} />
             <Routes>
             <Route 
                 path="/" 
@@ -51,11 +56,12 @@ function App() {
               />
               <Route 
                 path="/login" 
-                element={<Login />}
+                element={<Login isBusiness={isBusiness} setIsBusiness={setIsBusiness}/>}
               />
               <Route 
                 path="/signup" 
-                element={<Signup />}
+                // if one only puts <Signup isBusiness/>, then code assumes it is truthy, and does not assume the actual boolean value. Set isBusiness={isBusiness} to pass actual value to isBusiness
+                element={<Signup isBusiness={isBusiness} />}
               />
               <Route 
                 path="/profile" 
