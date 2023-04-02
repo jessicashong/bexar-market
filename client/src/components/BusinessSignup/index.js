@@ -20,6 +20,13 @@ function BusinessSignup() {
     // STATE VARIABLES
     const [formState, setFormState] = useState({ businessName: '', email: '', password: '', confirmPassword: '' });
     const [addBusiness] = useMutation(ADD_BUSINESS);
+    const [isBusiness, setIsBusiness] = useState(true);
+    // let isBusiness = true;
+
+    const formDisable = (userSelect) => {
+        if(userSelect)
+        return 'cursor-not-allowed';
+    }
 
     const handleSubmit = async (event) => {
         // event.preventDefault();
@@ -73,7 +80,7 @@ function BusinessSignup() {
                         {/* Require these inputs!! */}
                     <input 
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        className={`block border ${formDisable(isBusiness)} border-grey-light w-full p-3 rounded mb-4`}
                         name="businessName"
                         placeholder="Business Name" 
                         onChange={handleFormChange}/>
@@ -107,11 +114,11 @@ function BusinessSignup() {
                     <div className='block border border-grey-light w-full p-3 rounded mb-4'>
                       {/* TODO: MAKE THIS REQUIRED */}
                         <h3 className="italic text-center mb-4">What categories do you sell?</h3>
-                        {categories.map((categoryName, i) => {
+                        {categories.map((categoryName, j) => {
                             return (
                                 // add key here in case this specific item changes, then jsx knows to only change that    specific element
                                 // make sure to use the category id from the typeDef(?)
-                                <div key={i}>
+                                <div key={j}>
                                     <input
                                     className=" flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
                                     type="checkbox"
