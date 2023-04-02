@@ -6,7 +6,7 @@ import Modal from "../ModalSignup/index.js"
 import './style.css';
 import logo from "../../assets/logo512.png"
 
-function Nav() {
+function Nav({ isBusiness, setIsBusiness }) {
 
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
@@ -54,7 +54,10 @@ const [showModal, setShowModal] = useState(false);
                   onClose={() => {
                     setShowModal(false);
                     }
-                }>
+                  }
+                  isBusiness={isBusiness}
+                  setIsBusiness={setIsBusiness}
+                  >
                 </Modal>
             </li>
           </ul>

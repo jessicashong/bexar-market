@@ -1,19 +1,14 @@
 // Import style.css to include tailwind directives
 import './style.css';
 import React from 'react';
-import { Link, useNavigate  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
-// TODO: update modal to include Vendor vs Shopper buttons to redirect to Signup Page
+const Modal = ({ isVisible, onClose, isBusiness, setIsBusiness }) => {
 
-const Modal = ({ isVisible, onClose }) => {
-
-    // Create a variable that uses the useNavigate react function
+    // Create a variable that uses the useNavigate react function that will redirect to the called page
     const navigate = useNavigate();
 
-    // when this function is called, redirect the page to the home page
-    const navigateHome = () => {
-        navigate('/');
-    }
+    // when this function is called, redirect the page to the signup page
     const navigateSignup = () => {
         navigate('/signup');
     }
@@ -25,6 +20,7 @@ const Modal = ({ isVisible, onClose }) => {
         }
     }
 
+    // If this prop is false, do not show the modal
     if (!isVisible) return null; 
     
     return (
@@ -51,12 +47,14 @@ const Modal = ({ isVisible, onClose }) => {
                             Click an option to mosey on into Bexar County Market
                         </p>
                     </div>
+                    {/* SIGNUP SELECTION BUTTONS */}
                     <div className='border border-grey-light w-full p-3 rounded mb-4'>
                         <button
                             type="submit"
                             className='bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 mb-4'
-                            // when this button is clicked, set the modal to be true (modal appears)
+                            // when BUSINESS button is clicked, setIsBusiness=true so that the BUSINESS signup appears on the signup page
                             onClick ={ () => {
+                                setIsBusiness(true);
                                 onClose();
                                 navigateSignup();
                                 }
@@ -66,8 +64,9 @@ const Modal = ({ isVisible, onClose }) => {
                         <button
                                 type="submit"
                                 className="bg-orange-400 w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                                // when this button is clicked, set the modal to be true (modal appears)
+                                // when USER button is clicked, setIsBusiness=false so that the USER signup appears on the signup page
                                 onClick ={ () => {
+                                    setIsBusiness(false);
                                     onClose();
                                     navigateSignup();
                                     }
