@@ -54,44 +54,47 @@ db.once('open', async () => {
 
   await Business.deleteMany();
 
-  const businesses = await Business.insertMany([
-    {
-      email: 'woodchippers@email.com',
-      password: 'password1234',
-      businessName: 'Wood Chippers',
-      description: 'Wood Workers',
-      image: 'logo.jpg',
-      category: categories[0]._id,
-      products: [products[0]],
-    },
-    {
-      email: 'bigbexar@email.com',
-      password: 'password1234',
-      businessName: 'Big Bexar Leather',
-      description: 'Leatherworkers',
-      image: 'logo.jpg',
-      category: categories[1]._id,
-      products: [products[1]],
-    },
-    {
-      email: 'windfind@email.com',
-      password: 'password1234',
-      businessName: 'Windings and Findings',
-      description: 'Jewelry making',
-      image: 'logo.jpg',
-      category: categories[2]._id,
-      products: [products[2]],
-    },
-    {
-      email: 'scrappy@email.com',
-      password: 'password1234',
-      businessName: 'Sewy Scraps',
-      description: 'Sewing',
-      image: 'logo.jpg',
-      category: categories[3]._id,
-      products: [products[3]],
-    },
-  ]);
+  await Business.create({
+    email: 'woodchippers@email.com',
+    password: 'password1234',
+    businessName: 'Wood Chippers',
+    description: 'Wood Workers',
+    image: 'logo.jpg',
+    category: categories[0]._id,
+    products: [products[0]],
+  }),
+
+  await Business.create({
+    email: 'bigbexar@email.com',
+    password: 'password1234',
+    businessName: 'Big Bexar Leather',
+    description: 'Leatherworkers',
+    image: 'logo.jpg',
+    category: categories[1]._id,
+    products: [products[1]],
+  }),
+
+  await Business.create({
+    email: 'windfind@email.com',
+    password: 'password1234',
+    businessName: 'Windings and Findings',
+    description: 'Jewelry making',
+    image: 'logo.jpg',
+    category: categories[2]._id,
+    products: [products[2]],
+  },
+  ),
+
+  await Business.create({
+    email: 'scrappy@email.com',
+    password: 'password1234',
+    businessName: 'Sewy Scraps',
+    description: 'Sewing',
+    image: 'logo.jpg',
+    category: categories[3]._id,
+    products: [products[3]],
+  },
+  );
   console.log('businesses seeded');
 
   await User.deleteMany();

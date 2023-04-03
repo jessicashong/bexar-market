@@ -1,12 +1,23 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+
 import ProductItem from "../ProductItem"
+import { QUERY_PRODUCT } from '../../utils/queries';
+
+// Import style.css to include tailwind directives
+import './style.css';
+
 
 function ProductList() {
 
-    return (/*
+    const { loading, data } = useQuery(QUERY_PRODUCT);
+
+    console.log('productlist')
+
+    return (
         <div>
             <h2>Our Products</h2>
-            {state.products.length ? (
+            {products.length ? (
                 <div className="flex-row">
                     {filterproducts().map((product) => (
                         <ProductItem
@@ -24,7 +35,7 @@ function ProductList() {
                         <h3>This store has not added any products yet, check back later!</h3>
                     )}
         </div>
-    */console.log('productlist'))
+    )
 }
 
 export default ProductList;
