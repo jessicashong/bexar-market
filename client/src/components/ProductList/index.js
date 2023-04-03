@@ -41,10 +41,11 @@ const ProductList = () => {
             </div>
             <h2 className='products'>Our Products</h2>
             <div className="product-list">
-                {business.products.map((product) => (
+            {/* added checks here to see if business data and products data exist before mapping - presumed timing issue */}
+                {business?.products?.map((product) => (
                     <ProductItem
                         key={product._id}
-                        image={product.image}
+                        image={productImage}
                         productName={product.productName}
                         price={product.price}
                         description={product.description}
