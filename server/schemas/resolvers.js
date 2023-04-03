@@ -38,9 +38,7 @@ const resolvers = {
 
     updateUser: async (parent, args, context) => {
       if (context.user) {
-        return User.findbyIdAndUpdate(context.user.id, args, {
-          new: true,
-        });
+        return User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
       throw new AuthenticationError('You need to be logged in.');
     },
@@ -86,7 +84,6 @@ const resolvers = {
     },
 
     updateBusiness: async (parent, args, context) => {
-      console.log(context.user)
       if (context.user) {
         return await Business.findByIdAndUpdate(context.user._id, args, { new: true });
       }
