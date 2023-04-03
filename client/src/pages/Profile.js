@@ -4,13 +4,10 @@ import { Link } from "react-router-dom";
 import BusinessProductList from '../components/BusinessProductList';
 import UserFavoriteList from '../components/UserFavoriteList';
 
-function Profile() {
-
-    const business = true
-    const loggedIn = true
+function Profile({ business }) {
 
     function showProfile() {
-        if (/*Auth.loggedIn()*/loggedIn) {
+        if (Auth.loggedIn()) {
             if (business === true) {
                 return (
                     <div>
