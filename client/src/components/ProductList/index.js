@@ -40,7 +40,7 @@ const ProductList = () => {
                 {/* <button onClick={addToCart}>Add to cart</button> */}
             </div>
             <h2 className='products'>Our Products</h2>
-            <div className="flex-row">
+            <div className="product-list">
                 {business.products.map((product) => (
                     <ProductItem
                         key={product._id}
