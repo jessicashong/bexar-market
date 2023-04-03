@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/client';
 import Business from '../Business'
 import { QUERY_BUSINESSES } from '../../utils/queries';
 
-// TODO: used W22 A18 for reference to get something showing
 function BusinessList() {
 
   const { loading, data } = useQuery(QUERY_BUSINESSES);

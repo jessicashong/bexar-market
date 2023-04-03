@@ -1,30 +1,39 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 import UserFavoriteItem from "../UserFavoriteItem"
 
 function UserFavoriteList() {
 
-    return (/*
+    const { data } = useQuery(QUERY_ME);
+    console.log("userfavlistdata:", data)
+    let user;
+    // Chaining to check if data exists otherwise return empty array
+    // const user = data?.user || [];
+    // console.log("userfavlist:", user)
+
+    if (data) {
+        user = data;
+    }
+    // console.log("userdata:", user.me.favorites)
+    return (
         <div>
             <h2>Your Favorited Products</h2>
-            {state.products.length ? (
-                <div className="flex-row">
-                    {filterproducts().map((product) => (
-                        <UserFavoriteItem
-                            key={product._id}
-                            _id={product._id}
-                            image={product.image}
-                            name={product.name}
-                            price={product.price}
-                            description={product.description}
-                            quantity={product.quantity}
-                        />
-                    ))}
-                </div>
-                    ) : (
-                        <h3>No products added to your favorites, browse our wares to find products you like!</h3>
-                    )}
+            <div className="flex-row">
+                {user.me.favorites.map((product) => (
+                    <UserFavoriteItem
+                        key={product._id}
+                        _id={product._id}
+                        image={product.image}
+                        name={product.name}
+                        price={product.price}
+                        description={product.description}
+                        quantity={product.quantity}
+                    />
+                ))}
+            </div>
         </div>
-    */console.log('userfavoritelist'))
+    );
 }
 
 export default UserFavoriteList;
