@@ -13,7 +13,7 @@ function ProductItem(product) {
 
   return (
     <div className="card px-1 py-1">
-      <img
+      <img className='product-image'
         alt={productName}
         src={productImage}
       />
