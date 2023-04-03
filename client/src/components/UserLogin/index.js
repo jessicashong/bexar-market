@@ -53,8 +53,8 @@ function UserLogin() {
             className='block border border-grey-light p-2 rounded mb-4'
             placeholder="******"
             name="password"
-            type="userpassword"
-            id="pwd"
+            type="password"
+            id="userpassword"
             onChange={handleChange}
           />
         </div>
