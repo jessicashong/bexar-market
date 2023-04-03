@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 import BusinessProductList from '../components/BusinessProductList';
 import UserFavoriteList from '../components/UserFavoriteList';
+import UserUpdateModal from '../components/UserUpdateModal';
 
 function Profile({ business }) {
+
+    const [showUserModal, setShowUserModal] = useState(false);
 
     function showProfile() {
         if (Auth.loggedIn()) {
@@ -38,6 +41,23 @@ function Profile({ business }) {
     return (
         <div>
             {showProfile()}
+            <button
+                type="button"
+                className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                onClick={ () => {
+                    setShowUserModal(true);
+                    }
+                }
+                >
+                Click to Update Credentials
+            </button>
+            <UserUpdateModal
+                isVisible={showUserModal}
+                onClose={() => {
+                    setShowUserModal(false);
+                    }
+                  }
+            />
         </div>
     )
 
