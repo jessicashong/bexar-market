@@ -68,6 +68,10 @@ nav ul {
     margin: .5rem;
 }
 
+.nav-option {
+    margin: 0 1.25rem 0 1.25rem;
+}
+
 .about {
     margin: 1rem;
     display: flex;
@@ -136,3 +140,38 @@ nav ul {
 .portfolio-card:hover {
     background-color: #999;
 }
+
+.signup-form {
+    width: 26rem;
+    height: 45rem;
+}
+
+.login-form {
+    width: 18rem;
+    height: 21rem;
+}
+
+
+@media screen and (max-width: 992px) {
+    .nav-option {
+        margin: 0 1rem 0 1rem;
+    }
+    .contributors ul {
+        width: 75vw;
+    }
+    .mission h2, .contributors {
+        font-size: 1.5rem;
+    }
+    .mission p, .portfolio-card {
+        font-size: 1rem;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .nav-option {
+        margin: 0 .75rem 0 .75rem;
+    }
+    .contributors ul {
+        width: 85vw;
+    }
+  }

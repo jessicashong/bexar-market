@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
-// Import style.css to include tailwind directives
-import './style.css';
 import logo from "../../assets/logo512.png"
 
 function Nav({ isBusiness, setIsBusiness }) {
@@ -74,12 +72,12 @@ const [showModal, setShowModal] = useState(false);
           </Link>
         </h1>
         <h2>
-          <Link to="/about" className='mx-5'>
+          <Link to="/about" className='nav-option'>
             About
           </Link>
         </h2>
         <h2>
-          <Link to="/search" className='mx-5'>
+          <Link to="/search" className='nav-option'>
             Search
           </Link>
         </h2>
