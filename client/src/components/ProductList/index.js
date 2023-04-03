@@ -45,7 +45,7 @@ const ProductList = () => {
                     <ProductItem
                         key={product._id}
                         image={product.image}
-                        name={product.name}
+                        productName={product.productName}
                         price={product.price}
                         description={product.description}
                         quantity={product.quantity}

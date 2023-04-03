@@ -250,11 +250,22 @@ nav ul {
 
 .business-title img {
     height: 15rem;
+    border-radius: 25px;
+    outline-style: solid;
 }
 
 .products {
     font-size: 2rem;
     text-align: center;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info p {
+    font-size: 1.75rem;
 }
 
 .business-info {

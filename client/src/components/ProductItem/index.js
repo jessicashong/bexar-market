@@ -4,7 +4,7 @@ function ProductItem(product) {
 
   const {
     image,
-    name,
+    productName,
     price,
     description,
     quantity
@@ -12,12 +12,12 @@ function ProductItem(product) {
 
   return (
     <div className="card px-1 py-1">
-      <img
+      {/*<img
         alt={name}
-        src={`/images/${image}`}
-      />
-      <p>{name}</p>
-      <div>
+        src={image}
+      />*/}
+      <div className='product-info'>
+        <p>{productName}</p>
         <div>{description}</div>
         <span>Price: {price}</span>
         <span>{quantity} in stock</span>
