@@ -6,19 +6,22 @@ import UserFavoriteList from '../components/UserFavoriteList';
 import BusinessUpdateModal from "../components/BusinessUpdateModal";
 import UserUpdateModal from '../components/UserUpdateModal';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME, QUERY_BUSINESS } from '../utils/queries';
 
-function Profile() {
+function Profile({ isBusiness }) {
 
     const [showUserModal, setShowUserModal] = useState(false);
     const [showBusinessModal, setShowBusinessModal] = useState(false);
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    const { loading, data } = useQuery(QUERY_ME);
+    console.log(isBusiness)
+    let { loading, data } = useQuery(QUERY_ME);
 
     const userData = data?.me || [];
-    console.log('userData:', userData.userName)
+    // const businessData = data?.business || [];
+    // const businessData = businessInfo?.business || [];
+    console.log('userData:', userData)
+    // console.log('businessData:', businessData)
 
     function showProfile() {
         if (token) {
@@ -54,7 +57,7 @@ function Profile() {
             } else {
                 return (
                     <div className='user-profile'>
-                        <h2>Hello, {userData.userName}</h2>
+                        <h2>Hello, {userData.userName}!</h2>
                         <p>Favorites list coming soon!</p>
                         <div>
                         <button
