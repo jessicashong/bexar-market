@@ -71,6 +71,7 @@ const typeDefs = gql`
     products: [Product]
     product(_id: ID!): Product
     businesses: [Business]
+    business(businessId: ID!): Business
     me: User
   }
 

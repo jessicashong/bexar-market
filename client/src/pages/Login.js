@@ -37,10 +37,14 @@ function Login({ isBusiness, setIsBusiness }) {
             </div>
             <div className="flex flex-wrap items-center justify-center">
                 <div>
-                    <UserLogin />
+                    <UserLogin 
+                    isBusiness={false}
+                    />
                 </div>
                 <div>
-                    <BusinessLogin />
+                    <BusinessLogin
+                    isBusiness={true}
+                    />
                 </div>
             </div>
         </div>

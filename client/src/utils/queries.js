@@ -23,7 +23,7 @@ export const QUERY_ALL_PRODUCTS = gql`
 `;
 
 export const QUERY_PRODUCT = gql`
-    query me ($id: ID!) {
+    query product ($id: ID!) {
         product(_id: $id) {
             _id
             productName
@@ -36,8 +36,32 @@ export const QUERY_PRODUCT = gql`
 `;
 
 export const QUERY_BUSINESSES = gql`
-    query Query {
+    query businesses {
         businesses {
+            _id
+            businessName
+            email
+            description
+            image
+            category {
+                _id
+                name
+            }
+            products {
+                _id
+                productName
+                description
+                image
+                price
+                quantity
+            }
+        }
+    }
+`;
+
+export const QUERY_BUSINESS = gql`
+    query business ($id: ID!) {
+        business(businessId: $id) {
             _id
             businessName
             email
