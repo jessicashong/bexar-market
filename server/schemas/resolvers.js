@@ -36,14 +36,14 @@ const resolvers = {
       return { token, user };
     },
 
-    // updateUser: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return User.findbyIdAndUpdate(context.user.id, args, {
-    //       new: true,
-    //     });
-    //   }
-    //   throw new AuthenticationError('You need to be logged in.');
-    // },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findbyIdAndUpdate(context.user.id, args, {
+          new: true,
+        });
+      }
+      throw new AuthenticationError('You need to be logged in.');
+    },
 
     addProduct: async (parent, { productName, description, image, price, quantity }, context) => {
       if (context.user) {
@@ -64,30 +64,6 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
-
-    // updateProduct: async (parent, { productId, productName, description, image, price, quantity }, context) => {
-    //   if (context.product) {
-    //     const product = await Product.findOneAndUpdate(productId, {
-    //       productName,
-    //       description,
-    //       image,
-    //       price,
-    //       quantity
-    //     },
-    //     {
-    //       new: true,
-    //       runValidators: true,
-    //     }
-    //     );
-    //     await Business.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { products: product } },
-    //       { new: true, runValidators: true }
-    //     );
-    //     return product;
-    //   }
-    //   throw new AuthenticationError('You must be logged in as a business.');
-    // },
 
     deleteProduct: async (parent, { productId }, context) => {
       if (context.user) {
@@ -110,8 +86,9 @@ const resolvers = {
     },
 
     updateBusiness: async (parent, args, context) => {
-      if (context.business) {
-        return await Business.findByIdAndUpdate(context.business._id, args, { new: true });
+      console.log(context.user)
+      if (context.user) {
+        return await Business.findByIdAndUpdate(context.user._id, args, { new: true });
       }
       throw new AuthenticationError('You must be logged in as a business.');
     },
