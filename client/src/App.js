@@ -72,7 +72,7 @@ function App() {
                 element={<About />}
               />
               <Route 
-                path="/businesses/:id" 
+                path="/business/:id" 
                 element={<Business />}
               />
               {/*<Route 

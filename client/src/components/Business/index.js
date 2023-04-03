@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import businessImage from "../../assets/supportSmallBusiness.jpg"
 
 function Business(business) {
-  console.log("business:", business)
 
   const {
     image,
@@ -13,11 +12,10 @@ function Business(business) {
     description
   } = business;
 
-
   // TODO: broken business images
   return (
     <div className="card px-1 py-1">
-      <Link to={`/businesses/${_id}`}>
+      <Link to={`/business/${_id}`}>
         <img className='card-image'
           alt={businessName}
           src={businessImage}

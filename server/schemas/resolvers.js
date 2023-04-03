@@ -13,12 +13,15 @@ const resolvers = {
     },
 
     product: async (parent, { _id }) => {
-      console.log(_id);
       return await Product.findById(_id);
     },
 
     businesses: async () => {
       return await Business.find().populate('category').populate('products');
+    },
+
+    business: async (parent, { businessId }) => {
+      return await Business.findById(businessId);
     },
 
     me: async (parent, args, context) => {
@@ -45,7 +48,6 @@ const resolvers = {
 
     addProduct: async (parent, { productName, description, image, price, quantity }, context) => {
       if (context.user) {
-        console.log(productName);
         const product = await Product.create({
           productName: productName,
           description: description,
@@ -93,7 +95,6 @@ const resolvers = {
     addFavorite: async (parent, { productId }, context) => {
       if (context.user) {
         const product = await Product.findById(productId);
-        console.log(product);
         const favorites = await User.findByIdAndUpdate(context.user._id,
           { $addToSet: { favorites: product } });
         return favorites;
@@ -115,7 +116,6 @@ const resolvers = {
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log('LOGIN:', user);
       if (!user) {
         throw new AuthenticationError('Incorrect email or password.');
       }
