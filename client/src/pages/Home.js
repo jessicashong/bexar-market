@@ -5,7 +5,7 @@ import BusinessList from "../components/BusinessList"
 
 function Home() {
     return (
-      <div className="container">
+      <div className="home-container">
         <BusinessList />
       </div>
     );
