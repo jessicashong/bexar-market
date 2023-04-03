@@ -14,9 +14,9 @@ function BusinessList() {
     return <div>Loading...</div>
   }
   return (
-    <div>
+    <div className='business-container'>
       <h2>Bexar Market Busniesses</h2>
-        <div className="flex-row business-list">
+        <div className="business-list">
           {businesses.map((business) => (
             <Business
               key={business._id}
