@@ -14,21 +14,18 @@ function Profile() {
     const [showBusinessModal, setShowBusinessModal] = useState(false);
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    const { userName } = useParams();
 
-    let business = false
-
-    const { loading, data } = useQuery(QUERY_ME)
+    const { loading, data } = useQuery(QUERY_ME);
 
     const userData = data?.me || [];
-    console.log('userData:', userData)
+    console.log('userData:', userData.userName)
 
     function showProfile() {
         if (token) {
-            if (userData === null) {
+            if (userData.userName === undefined) {
                 return (
                     <div>
-                        <h2>Hello, businessName</h2>
+                        <h2>Hello</h2>
                         {/*<BusinessProductList />*/}
                         <div>
                         <button
@@ -57,9 +54,9 @@ function Profile() {
             } else {
                 return (
                     <div>
-                        <h2>Hello, userName</h2>
-                        {/*<UserFavoriteList />*/}
-                        <div></div>
+                        <h2>Hello, {userData.userName}</h2>
+                        <p>Favorites list coming soon!</p>
+                        <div>
                         <button
                             type="button"
                             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
@@ -77,6 +74,7 @@ function Profile() {
                                 }
                             }
                         />
+                        </div>
                     </div>
                 )
             }
