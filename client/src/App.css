@@ -239,6 +239,38 @@ nav ul {
     margin: 1rem
 }
 
+.business {
+    margin: 2rem;
+}
+
+.business-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.business-title img {
+    height: 15rem;
+}
+
+.products {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.business-info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.business-info p {
+    font-size: 2rem;
+}
+
+.business-desc {
+    font-size: 1.25rem;
+}
 
 @media screen and (max-width: 992px) {
     .nav-option {
