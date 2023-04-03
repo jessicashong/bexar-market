@@ -18,15 +18,15 @@ function Business(business) {
   return (
     <div className="card px-1 py-1">
       <Link to={`/businesses/${_id}`}>
-        <img
+        <img className='card-image'
           alt={businessName}
           src={businessImage}
         />
-        <p>{businessName}</p>
+        <p className='card-title'>{businessName}</p>
       </Link>
       <div>
-        <div>{description}</div>
-        <div>{categories}</div>
+        <div className='card-desc'>{description}</div>
+        <div className='card-cata'>{categories}</div>
       </div>
       {/* <button onClick={addToCart}>Add to cart</button> */}
     </div>
