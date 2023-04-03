@@ -76,6 +76,11 @@ const [showModal, setShowModal] = useState(false);
             About
           </Link>
         </h2>
+        {/* <h2>
+          <Link to="/search" className='nav-option'>
+            Search
+          </Link>
+        </h2> */}
         {/* search bar */}
           <div className="flex justify-center">
             <div className="mb-3 xl:w-96">
@@ -106,6 +111,7 @@ const [showModal, setShowModal] = useState(false);
               </div>
             </div>
           </div>
+
         </div>
   
         <nav>

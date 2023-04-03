@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate  } from "react-router-dom";
+import { useMutation } from '@apollo/client';
+import { UPDATE_USER } from '../../utils/mutations';
 
 const UserUpdateModal = ({ isVisible, onClose }) => {
+    const [formState, setFormState] = useState({
+        userName: '',
+        email: '',
+        password: '',
+    });
+    const [updateUser, { error }] = useMutation(UPDATE_USER);
 
     // Create a variable that uses the useNavigate react function that will redirect to the called page
     const navigate = useNavigate();
-
     // when this function is called, redirect the page to the signup page
     const navigateSignup = () => {
         navigate('/signup');
@@ -13,13 +20,16 @@ const UserUpdateModal = ({ isVisible, onClose }) => {
     
         // EVENT HANDLER BLOCK
     // When an form field is changed, update the formState
-    const handleFormChange = (event) => {
-            // const { name, value } = event.target;
-            // setFormState({
-            //     ...formState,
-            //     [name]: value,
-            // });
-        };
+    const handleFormChange = async (event) => {
+        const { name, value } = event.target;
+        if (name === 'userName'){
+            setFormState({ ...formState, [name]: value });
+        } else if (name === 'email'){
+            setFormState({ ...formState, [name]: value });
+        } else {
+            setFormState({ ...formState, [name]: value });
+        }
+    };
 
     // when user clicks OUTSIDE the modal, then close the modal. the div id is called wrapper.
     const handleClose = (e) => {
@@ -50,7 +60,7 @@ const UserUpdateModal = ({ isVisible, onClose }) => {
 
 
                 <form className="flex flex-1 flex-col bg-white px-6 py-8 rounded shadow-md text-black min-w-fit border">
-                        <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
+                        <h1 className="mb-8 text-3xl text-center">Update User Account</h1>
                         <div className='flex flex-col border border-grey-light p-3 rounded mb-4'>
                             {/* Require these inputs!! */}
                             <input 

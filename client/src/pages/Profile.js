@@ -5,12 +5,12 @@ import BusinessProductList from '../components/BusinessProductList';
 import UserFavoriteList from '../components/UserFavoriteList';
 import UserUpdateModal from '../components/UserUpdateModal';
 
-function Profile({ business }) {
-
+function Profile() {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
     const [showUserModal, setShowUserModal] = useState(false);
-
+    console.log(token);
     function showProfile() {
-        if (Auth.loggedIn()) {
+        if (token) {
             if (business === true) {
                 return (
                     <div>
@@ -24,7 +24,7 @@ function Profile({ business }) {
             } else {
                 return (
                     <div>
-                        <h2>Hello, username</h2>
+                        <h2>Hello, userName</h2>
                         {/*<UserFavoriteList />*/}
                     </div>
                 )

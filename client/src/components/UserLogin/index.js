@@ -7,7 +7,6 @@ function UserLogin() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
-
   // Submit Form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -15,6 +14,7 @@ function UserLogin() {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+      console.log(mutationResponse);
       const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (e) {
