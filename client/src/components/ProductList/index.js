@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ProductItem from "../ProductItem"
 import { QUERY_BUSINESS } from '../../utils/queries';
 import businessImage from "../../assets/supportSmallBusiness.jpg"
+import productImage from "../../assets/product.png"
 
 //TODO: show products only for current business
 const ProductList = () => {

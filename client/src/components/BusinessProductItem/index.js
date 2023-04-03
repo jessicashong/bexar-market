@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import productImage from "../../assets/product.png"
 
 function BusinessProductItem(product) {
 
@@ -17,7 +18,7 @@ function BusinessProductItem(product) {
           <Link to={`/products/${_id}`}>
             <img
               alt={name}
-              src={`/images/${image}`}
+              src={productImage}
             />
             <p>{name}</p>
           </Link>
