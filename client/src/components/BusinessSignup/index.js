@@ -1,5 +1,3 @@
-// Import style.css to include tailwind directives
-import './style.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 // import { Button } from "@material-tailwind/react";
@@ -57,7 +55,7 @@ function BusinessSignup({ isBusiness }) {
     return (
         <>
 
-            <div className="bg-grey-lighter flex flex-col m-5">
+            <div className="bg-grey-lighter flex flex-col m-5 signup-form">
                 <div className="container max-w-md mx-auto flex-1 flex flex-row items-center px-2">
                     
                     {/* BUSINESS SIGNUP */}
@@ -67,7 +65,7 @@ function BusinessSignup({ isBusiness }) {
                             {/* Require these inputs!! */}
                             <input 
                                 type="text"
-                                className={`form-input block border border-grey-light w-full p-3 rounded mb-4`}
+                                className="form-input block border border-grey-light w-full p-3 rounded mb-4"
                                 name="businessName"
                                 placeholder="Business Name"
                                 onChange={handleFormChange}
@@ -82,7 +80,7 @@ function BusinessSignup({ isBusiness }) {
                             />
                             <input 
                                 type="password"
-                                className={`block border border-grey-light w-full p-3 rounded mb-4`}
+                                className="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="password"
                                 placeholder="Password"
                                 onChange={handleFormChange} 
@@ -110,7 +108,7 @@ function BusinessSignup({ isBusiness }) {
                                         // make sure to use the category id from the typeDef(?)
                                         <div key={j}>
                                             <input
-                                                className=" flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
+                                                className="flex-row dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
                                                 type="checkbox"
                                                 value=""
                                                 id="checkboxDefault"/>

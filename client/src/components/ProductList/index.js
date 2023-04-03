@@ -3,8 +3,10 @@ import { useQuery } from '@apollo/client';
 
 import ProductItem from "../ProductItem"
 import { QUERY_PRODUCT } from '../../utils/queries';
+
 // Import style.css to include tailwind directives
 import './style.css';
+
 
 function ProductList() {
 

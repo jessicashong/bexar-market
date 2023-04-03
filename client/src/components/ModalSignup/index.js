@@ -1,5 +1,3 @@
-// Import style.css to include tailwind directives
-import './style.css';
 import React from 'react';
 import { useNavigate  } from "react-router-dom";
 

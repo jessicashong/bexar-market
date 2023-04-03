@@ -3,9 +3,6 @@ import { useQuery } from '@apollo/client';
 import Business from '../Business'
 import { QUERY_BUSINESSES } from '../../utils/queries';
 
-// Import style.css to include tailwind directives
-import './style.css';
-
 // TODO: used W22 A18 for reference to get something showing
 function BusinessList() {
 

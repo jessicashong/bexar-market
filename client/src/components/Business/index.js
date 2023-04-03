@@ -15,6 +15,7 @@ function Business(business) {
     description
   } = business;
 
+
   // TODO: broken business images
   return (
     <div className="card px-1 py-1">
