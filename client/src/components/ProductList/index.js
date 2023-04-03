@@ -26,7 +26,7 @@ const ProductList = () => {
         <div className='business'>
             <div className="business-title">
                 <div>
-                <img
+                <img product 
                     alt={business.businessName}
                     src={businessImage}
                 />
