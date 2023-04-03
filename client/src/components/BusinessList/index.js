@@ -9,30 +9,29 @@ import './style.css';
 // TODO: used W22 A18 for reference to get something showing
 function BusinessList() {
 
-  const { data } = useQuery(QUERY_BUSINESSES);
+  const { loading, data } = useQuery(QUERY_BUSINESSES);
   // Chaining to check if data exists otherwise return empty array
   const businesses = data?.businesses || [];
 
+  if(loading) {
+    return <div>Loading...</div>
+  }
   return (
-    <div>
-      <h2>Bexar Market Businesses</h2>
-      <div className="flex-row">
-        {/* {businesses().map((business) => ( */}
-        <Business
-          business={businesses}
-          title="List of Bexar Market Businesses"
-        // key={business._id}
-        // _id={business._id}
-        // image={business.image}
-        // name={business.businessName}
-        // category={business.category}
-        // description={business.description}
-        />
-        {/* )) */}
-        {/* } */}
-      </div>
-
-    </div>
+    <div className="my-2">
+      <h2>Bexar Market Busniesses</h2>
+        <div className="flex-row">
+          {businesses.map((business) => (
+            <Business
+              key={business._id}
+              _id={business._id}
+              image={business.image}
+              businessName={business.businessName}
+              description={business.description}
+              category={business.category}
+            />
+          ))}
+        </div>
+    </div>    
   );
 }
 

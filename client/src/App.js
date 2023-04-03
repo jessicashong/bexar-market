@@ -72,7 +72,7 @@ function App() {
                 element={<About />}
               />
               <Route 
-                path="/business" 
+                path="/businesses/:id" 
                 element={<Business />}
               />
               {/*<Route 
