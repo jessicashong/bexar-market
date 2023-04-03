@@ -21,6 +21,25 @@ export const ADD_USER = gql`
     }
 `;
 
+// update user info: username, email, password
+export const UPDATE_USER = gql`
+    mutation updateUser(
+        $userName: String, 
+        $email: String, 
+        $password: String
+    ) {
+        updateUser(
+            userName: $userName, 
+            email: $email, 
+            password: $password
+        ) {
+            _id
+            userName
+            email
+        }
+    }   
+`;
+
 // must be logged in as busines to add product
 export const ADD_PRODUCT = gql`
     mutation addProduct (
@@ -78,6 +97,25 @@ export const ADD_BUSINESS = gql`
                 _id
                 businessName
             }
+        }
+    }
+`;
+
+// update business info: businessName, email, password
+export const UPDATE_BUSINESS = gql`
+    mutation updateBusiness(
+        $businessName: String, 
+        $email: String, 
+        $password: String
+    ) {
+        updateBusiness(
+            businessName: $businessName, 
+            email: $email, 
+            password: $password
+        ) {
+            _id
+            businessName
+            email
         }
     }
 `;

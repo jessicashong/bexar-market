@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import businessImage from "../../assets/supportSmallBusiness.jpg"
 
 function Business(business) {
   console.log("business:", business)
@@ -19,7 +20,7 @@ function Business(business) {
       <Link to={`/businesses/${_id}`}>
         <img
           alt={businessName}
-          src={`/images/${image}`}
+          src={businessImage}
         />
         <p>{businessName}</p>
       </Link>

@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import ProductItem from "../ProductItem"
 import { QUERY_PRODUCT } from '../../utils/queries';
 
-
 function ProductList() {
 
     const { loading, data } = useQuery(QUERY_PRODUCT);
