@@ -76,11 +76,11 @@ const [showModal, setShowModal] = useState(false);
             About
           </Link>
         </h2>
-        <h2>
+        {/*<h2>
           <Link to="/search" className='nav-option'>
             Search
           </Link>
-        </h2>
+        </h2>*/}
         </div>
   
         <nav>
