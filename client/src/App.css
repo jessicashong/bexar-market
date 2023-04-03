@@ -212,6 +212,33 @@ nav ul {
     height: 21rem;
 }
 
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+    max-height: 100%;
+    align-items: center;
+}
+
+.user-profile h2 {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.user-profile p {
+    font-size: 1.25rem;
+    margin: 1rem;
+}
+
+.user-profile button {
+    margin: 1rem
+}
+
 
 @media screen and (max-width: 992px) {
     .nav-option {
