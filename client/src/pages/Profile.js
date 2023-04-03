@@ -53,7 +53,7 @@ function Profile() {
                 )
             } else {
                 return (
-                    <div>
+                    <div className='user-profile'>
                         <h2>Hello, {userData.userName}</h2>
                         <p>Favorites list coming soon!</p>
                         <div>
@@ -88,7 +88,7 @@ function Profile() {
     }
 
     return (
-        <div>
+        <div className='profile'>
             {showProfile()}
         </div>
     )
