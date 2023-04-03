@@ -14,7 +14,7 @@ function ProductItem(product) {
   return (
     <div className="card px-1 py-1">
       <img
-        alt={name}
+        alt={productName}
         src={productImage}
       />
       <div className='product-info'>
