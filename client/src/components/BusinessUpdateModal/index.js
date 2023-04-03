@@ -50,7 +50,7 @@ const BusinessUpdateModal = ({ isVisible, onClose }) => {
 
 
                 <form className="flex flex-1 flex-col bg-white px-6 py-8 rounded shadow-md text-black min-w-fit border">
-                        <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
+                        <h1 className="mb-8 text-3xl text-center">Update Business Account</h1>
                         <div className='flex flex-col border border-grey-light p-3 rounded mb-4'>
                             {/* Require these inputs!! */}
                             <input 
