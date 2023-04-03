@@ -3,9 +3,6 @@ import Auth from "../../utils/auth";
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 
-// Import style.css to include tailwind directives
-import './style.css';
-
 function UserLogin() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -36,7 +33,7 @@ function UserLogin() {
   };
 
   return (
-    <div className="container my-5 mx-auto flex flex-col items-center mb-10">
+    <div className="container my-5 mx-auto flex flex-col items-center mb-10 login-form">
       <h2 className='text-2xl mt-5'>User Login</h2>
       <form onSubmit={handleFormSubmit} className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
@@ -46,7 +43,7 @@ function UserLogin() {
             placeholder="youremail@test.com"
             name="email"
             type="email"
-            id="email"
+            id="useremail"
             onChange={handleChange}
           />
         </div>
@@ -56,7 +53,7 @@ function UserLogin() {
             className='block border border-grey-light p-2 rounded mb-4'
             placeholder="******"
             name="password"
-            type="password"
+            type="userpassword"
             id="pwd"
             onChange={handleChange}
           />

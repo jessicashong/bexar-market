@@ -1,7 +1,5 @@
 import React from 'react';
 import ProductItem from "../ProductItem"
-// Import style.css to include tailwind directives
-import './style.css';
 
 function ProductList() {
 

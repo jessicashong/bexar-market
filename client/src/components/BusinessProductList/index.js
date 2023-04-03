@@ -1,7 +1,5 @@
 import React from 'react';
 import BusinessProductItem from "../BusinessProductItem"
-// Import style.css to include tailwind directives
-import './style.css';
 
 function BusinessProductList() {
 

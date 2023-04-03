@@ -1,5 +1,3 @@
-// Import style.css to include tailwind directives
-import './style.css';
 import React, { useState } from 'react';
 // import { Button } from "@material-tailwind/react";
 //import { useMutation } from '@apollo/client';

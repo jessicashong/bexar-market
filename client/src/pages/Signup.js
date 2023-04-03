@@ -1,5 +1,3 @@
-// Import style.css to include tailwind directives
-import './style.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import BusinessSignup from '../components/BusinessSignup';
@@ -9,8 +7,7 @@ import UserSignup from '../components/UserSignup';
 // import { ADD_USER, ADD_BUSINESS } from '../utils/mutations';
 
 
-function Signup() {
-
+function Signup({ isBusiness }) {
 
     return (
 
@@ -24,10 +21,8 @@ function Signup() {
             </div>
             <div className="flex flex-wrap items-center justify-center">
                 <div >
-                    <UserSignup />
-                </div>
-                <div>
-                    <BusinessSignup />
+                    {console.log("isBusiness is set to: " + isBusiness)}
+                    {isBusiness === true ? <BusinessSignup/> : <UserSignup/>}
                 </div>
             </div>
         </div>

@@ -3,21 +3,18 @@ import Auth from "../../utils/auth";
 import { useMutation } from '@apollo/client';
 import { BUSINESS_LOGIN } from '../../utils/mutations';
 
-// Import style.css to include tailwind directives
-import './style.css';
-
 function BusinessLogin() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(BUSINESS_LOGIN);
+  const [businessLogin, { error }] = useMutation(BUSINESS_LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await login({
+      const mutationResponse = await businessLogin({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.login.token;
+      const token = mutationResponse.data.businessLogin.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
@@ -35,9 +32,9 @@ function BusinessLogin() {
   };
 
   return (
-    <div className="container my-1 m-auto px-2 flex flex-col items-center">
-      <h2 className='text-2xl'>Business Login</h2>
-      <form className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
+    <div className="container my-5 mx-auto flex flex-col items-center mb-10 login-form">
+      <h2 className='text-2xl mt-5'>Business Login</h2>
+      <form onSubmit={handleFormSubmit} className='flex flex-col border px-6 py-8 rounded shadow-md items-center'>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
@@ -45,7 +42,7 @@ function BusinessLogin() {
             placeholder="youremail@test.com"
             name="email"
             type="email"
-            id="email"
+            id="businessemail"
             onChange={handleChange}
           />
         </div>
@@ -56,7 +53,7 @@ function BusinessLogin() {
             placeholder="******"
             name="password"
             type="password"
-            id="pwd"
+            id="businesspwd"
             onChange={handleChange}
           />
         </div>

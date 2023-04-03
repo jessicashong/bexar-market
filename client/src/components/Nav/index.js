@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Modal from "../ModalSignup/index.js"
-// Import style.css to include tailwind directives
-import './style.css';
 import logo from "../../assets/logo512.png"
 
-function Nav() {
+function Nav({ isBusiness, setIsBusiness }) {
 
   // create state for Modal
 const [showModal, setShowModal] = useState(false);
@@ -54,7 +52,10 @@ const [showModal, setShowModal] = useState(false);
                   onClose={() => {
                     setShowModal(false);
                     }
-                }>
+                  }
+                  isBusiness={isBusiness}
+                  setIsBusiness={setIsBusiness}
+                  >
                 </Modal>
             </li>
           </ul>
@@ -71,12 +72,12 @@ const [showModal, setShowModal] = useState(false);
           </Link>
         </h1>
         <h2>
-          <Link to="/about" className='mx-5'>
+          <Link to="/about" className='nav-option'>
             About
           </Link>
         </h2>
         <h2>
-          <Link to="/search" className='mx-5'>
+          <Link to="/search" className='nav-option'>
             Search
           </Link>
         </h2>
