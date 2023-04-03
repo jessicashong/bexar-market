@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import BusinessUpdateModal from "../components/BusinessUpdateModal";
 
 import Business from '../components/Business';
 import ProductList from "../components/ProductList";
@@ -9,6 +10,7 @@ import { QUERY_BUSINESSES } from '../utils/queries';
 function SingleBusiness() {
     const { businessId } = useParams();
 
+    const [showBusinessModal, setShowBusinessModal] = useState(false);
     const [currentBusiness, setCurrentBusiness] = useState({});
 
     const { loading, data } = useQuery(QUERY_BUSINESSES, {
@@ -31,6 +33,23 @@ function SingleBusiness() {
             </div>
 
             <ProductList />
+            <button
+                type="button"
+                className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                onClick={ () => {
+                    setShowBusinessModal(true);
+                    }
+                }
+                >
+                Click to Update Credentials
+            </button>
+            <BusinessUpdateModal
+                isVisible={showBusinessModal}
+                onClose={() => {
+                    setShowBusinessModal(false);
+                    }
+                  }
+            />
         </div>
     )
 }
