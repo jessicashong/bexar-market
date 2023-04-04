@@ -6,20 +6,20 @@ import { QUERY_BUSINESS } from '../../utils/queries';
 
 function BusinessProductList() {
 
-    // Retrieving value of route parameter `:
     const businessId = Auth.getBusiness();
-    console.log("buslistbusID:", businessId)
 
+    // Return data about QUERY_BUSINESS mutation an adding variables
     const { loading, data } = useQuery(QUERY_BUSINESS, {
         variables: { id: businessId },
     });
-
+    // Chaining to check if data exists otherwise return empty array
     const business = data?.business || [];
-    // console.log("buslistbusdata:", business)
-    
+
+    // Allow time for data to load
     if (loading) {
         return <h2>Loading...</h2>
     }
+    // React container to map over mulitple business products in array
     return (
         <div className='business-products'>
             <h2>Your Products</h2>
@@ -36,26 +36,6 @@ function BusinessProductList() {
                 ))}
             </div>
         </div>
-        // <div>
-        //     <h2>Your Products</h2>
-        //     {state.products.length ? (
-        //         <div className="flex-row">
-        //             {filterproducts().map((product) => (
-        //                 <BusinessProductItem
-        //                     key={product._id}
-        //                     _id={product._id}
-        //                     image={product.image}
-        //                     name={product.name}
-        //                     price={product.price}
-        //                     description={product.description}
-        //                     quantity={product.quantity}
-        //                 />
-        //             ))}
-        //         </div>
-        //             ) : (
-        //                 <h3>No products added to your store, use the Add Product button to stock your store!</h3>
-        //             )}
-        // </div>
     );
 }
 

@@ -12,7 +12,7 @@ function Business(business) {
     description
   } = business;
 
-  // TODO: broken business images
+  // React business 'card' with info
   return (
     <div className="card px-1 py-1">
       <Link to={`/business/${_id}`}>
@@ -26,7 +26,6 @@ function Business(business) {
         <div className='card-desc'>{description}</div>
         <div className='card-cata'>{categories}</div>
       </div>
-      {/* <button onClick={addToCart}>Add to cart</button> */}
     </div>
   );
 }

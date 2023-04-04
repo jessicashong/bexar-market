@@ -1,20 +1,20 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import productImage from "../../assets/product.png"
 
 function BusinessProductItem(product) {
 
-    const {
-        image,
-        productName,
-        _id,
-        price,
-        description,
-        quantity
-      } = product;
+  const {
+    // image,
+    productName,
+    // _id,
+    price,
+    description,
+    quantity
+  } = product;
 
-    return (
-      <div className="card px-1 py-1">
+  // React product 'card' with info
+  return (
+    <div className="card px-1 py-1">
       <img className='product-image'
         alt={productName}
         src={productImage}
@@ -26,7 +26,7 @@ function BusinessProductItem(product) {
         <span>{quantity} in stock</span>
       </div>
     </div>
-  );  
+  );
 }
 
 export default BusinessProductItem;

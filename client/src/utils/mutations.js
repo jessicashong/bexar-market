@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-// signup new user
+// Signup new user
 export const ADD_USER = gql`
     mutation addUser (
         $userName: String!, 
@@ -21,7 +21,7 @@ export const ADD_USER = gql`
     }
 `;
 
-// update user info: username, email, password
+// Update User info: username, email, password
 export const UPDATE_USER = gql`
     mutation updateUser(
         $userName: String, 
@@ -40,7 +40,7 @@ export const UPDATE_USER = gql`
     }   
 `;
 
-// must be logged in as busines to add product
+// Add product: Future development
 export const ADD_PRODUCT = gql`
     mutation addProduct (
         $productName: String, 
@@ -66,7 +66,7 @@ export const ADD_PRODUCT = gql`
     }
 `;
 
-// must be logged in as business to delete product
+// Delete Product: Future development
 export const DELETE_PRODUCT = gql`
     mutation deleteProduct(
         $productId: ID!
@@ -80,7 +80,7 @@ export const DELETE_PRODUCT = gql`
     }
 `;
 
-// signup new business
+// Signup a new business
 export const ADD_BUSINESS = gql`
     mutation addBusiness(
         $businessName: String!, 
