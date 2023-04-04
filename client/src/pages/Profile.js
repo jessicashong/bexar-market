@@ -110,7 +110,7 @@ function Profile({ isBusiness }) {
             <>
                 <div>
                         <h2>Hello {data.business.businessName}</h2>
-                        {/*<BusinessProductList />*/}
+                        <BusinessProductList />
                         <div>
                         <button
                             type="button"

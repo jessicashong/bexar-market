@@ -30,21 +30,6 @@ function BusinessProductItem(product) {
       {/* <button onClick={addToCart}>Add to cart</button> */}
     </div>
   );  
-        <div className="card px-1 py-1">
-          <Link to={`/products/${_id}`}>
-            <img
-              alt={name}
-              src={productImage}
-            />
-            <p>{name}</p>
-          </Link>
-          <div>
-            <span>Price: {price}</span>
-            <span>{quantity} in stock</span>
-            <div>{description}</div>
-          </div>
-        </div>
-    )
 }
 
 export default BusinessProductItem;

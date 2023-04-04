@@ -1,14 +1,14 @@
 import React from 'react';
+import Auth from "../../utils/auth";
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
 import BusinessProductItem from "../BusinessProductItem"
 import { QUERY_BUSINESS } from '../../utils/queries';
 
 function BusinessProductList() {
 
     // Retrieving value of route parameter `:
-    const businessId = useParams();
-    // console.log("buslistbusID:", businessId.id)
+    const businessId = Auth.getBusiness();
+    console.log("buslistbusID:", businessId)
 
     const { loading, data } = useQuery(QUERY_BUSINESS, {
         variables: { id: businessId.id },
