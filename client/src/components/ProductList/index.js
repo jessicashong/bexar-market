@@ -38,6 +38,7 @@ const ProductList = () => {
                     <div>{business.categories}</div>
                 </div>
                 </div>
+                
                 {/* <button onClick={addToCart}>Add to cart</button> */}
             </div>
             <h2 className='products'>Our Products</h2>

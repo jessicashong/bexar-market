@@ -8,12 +8,12 @@ import UserUpdateModal from '../components/UserUpdateModal';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_BUSINESS } from '../utils/queries';
 
-function Profile({ isBusiness }) {
+function Profile() {
 
     const [showUserModal, setShowUserModal] = useState(false);
     const [showBusinessModal, setShowBusinessModal] = useState(false);
 
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // const token = Auth.loggedIn() ? Auth.getToken() : null;
     const bizId = Auth.getBusiness();
 
     let { loading, data } = useQuery(
@@ -112,7 +112,7 @@ function Profile({ isBusiness }) {
                         <h2>Hello {data.business.businessName}</h2>
                         <BusinessProductList />
                         <div>
-                        <button
+                        {/* <button
                             type="button"
                             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                             onClick={ () => {
@@ -128,7 +128,7 @@ function Profile({ isBusiness }) {
                             setShowBusinessModal(false);
                                 }
                             }
-                        />
+                        /> */}
                         </div>
                         <div>
                             <button>Add Product</button>
@@ -138,9 +138,10 @@ function Profile({ isBusiness }) {
         : <>
         <div className='user-profile'>
         <h2>Hello, {userData.userName}!</h2>
-        <p>Favorites list coming soon!</p>
+        {/* <p>Favorites list coming soon!</p> */}
+        <UserFavoriteList />
         <div>
-        <button
+        {/* <button
             type="button"
             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
             onClick={ () => {
@@ -156,7 +157,7 @@ function Profile({ isBusiness }) {
             setShowUserModal(false);
                 }
             }
-        />
+        /> */}
         </div>
     </div></>}
     </div>
