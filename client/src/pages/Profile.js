@@ -63,7 +63,7 @@ function Profile() {
         {/* <p>Favorites list coming soon!</p> */}
         <UserFavoriteList />
         <div>
-        {/* <button
+        <button
             type="button"
             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
             onClick={ () => {
@@ -79,7 +79,7 @@ function Profile() {
             setShowUserModal(false);
                 }
             }
-        /> */}
+        />
         </div>
     </div></>}
     </div>
