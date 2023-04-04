@@ -15,6 +15,7 @@ function BusinessLogin() {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.businessLogin.token;
+
       Auth.login(token);
       Auth.setBusiness(mutationResponse.data.businessLogin.business._id)
     } catch (e) {

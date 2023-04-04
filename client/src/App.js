@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import Search from './pages/Search';
+// import Search from './pages/Search';
 import Signup from './pages/Signup';
 import Business from './pages/Business';
 import Modal from './components/ModalSignup';
@@ -64,8 +64,8 @@ function App() {
                 element={<Signup isBusiness={isBusiness} />}
               />
               <Route 
-                path="/profile" 
-                element={<Profile />}
+                path="/profile/:id" 
+                element={<Profile isBusiness={isBusiness} />}
               />
               <Route 
                 path="/about" 
