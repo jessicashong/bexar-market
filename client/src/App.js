@@ -64,7 +64,7 @@ function App() {
                 element={<Signup isBusiness={isBusiness} />}
               />
               <Route 
-                path="/profile/:id" 
+                path="/profile" 
                 element={<Profile isBusiness={isBusiness} />}
               />
               <Route 

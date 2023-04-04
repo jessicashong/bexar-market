@@ -22,6 +22,17 @@ function ProductItem(product) {
         <div>{description}</div>
         <span>Price: {price}</span>
         <span>{quantity} in stock</span>
+
+        <button
+            type="button"
+            className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+            onClick={ () => {
+              setShowBusinessModal(true);
+              }
+            }
+        >
+          Click to Update Credentials
+        </button>
       </div>
     </div>
   )

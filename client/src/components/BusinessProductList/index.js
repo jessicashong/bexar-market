@@ -11,7 +11,7 @@ function BusinessProductList() {
     console.log("buslistbusID:", businessId)
 
     const { loading, data } = useQuery(QUERY_BUSINESS, {
-        variables: { id: businessId.id },
+        variables: { id: businessId },
     });
 
     const business = data?.business || [];
