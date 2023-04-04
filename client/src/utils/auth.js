@@ -21,6 +21,11 @@ class AuthService {
   setBusiness(idBus){
     return localStorage.setItem('id_bus', idBus)
   }
+  
+  getBusiness(){
+    console.log('id_bus:', localStorage.getItem('id_bus'))
+    return localStorage.getItem('id_bus');
+  }
 
   getToken() {
     return localStorage.getItem('id_token');
@@ -34,6 +39,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('id_bus');
     window.location.assign('/');
   }
 }
