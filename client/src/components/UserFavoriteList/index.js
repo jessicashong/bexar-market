@@ -15,9 +15,9 @@ function UserFavoriteList() {
     }
     // console.log("userdata:", user.me.favorites)
     return (loading ? <div>Loading data...</div> : (
-        <div>
+        <div className='favorite-group'>
             <h2>Your Favorited Products</h2>
-            <div className="flex-row">
+            <div className="favorite-group-items">
                 {data.me.favorites?.map((favorite, index) => (
                     <UserFavoriteItem
                         key={favorite._id}

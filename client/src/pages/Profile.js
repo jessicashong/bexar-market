@@ -33,7 +33,8 @@ function Profile() {
                 <div className='business-profile'>
                         <h2>Hello {data.business.businessName}</h2>
                         <div>
-                            <button>Add Product</button>
+                            {/*<button>Add Product</button>*/}
+                            <p>Add Products Soon!</p>
                         </div>
                         <BusinessProductList />
                         <div>
@@ -61,7 +62,6 @@ function Profile() {
         <div className='user-profile'>
         <h2>Hello, {userData.userName}!</h2>
         {/* <p>Favorites list coming soon!</p> */}
-        <UserFavoriteList />
         <div>
         <button
             type="button"
@@ -81,6 +81,7 @@ function Profile() {
             }
         />
         </div>
+        <UserFavoriteList />
     </div></>}
     </div>
         
