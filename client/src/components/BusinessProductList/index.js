@@ -21,26 +21,14 @@ function BusinessProductList() {
         return <h2>Loading...</h2>
     }
     return (
-        <div>
-            <div className="card px-1 py-1">
-                <img
-                    alt={business.businessName}
-                    src={`/images/${business.image}`}
-                />
-                <p>{business.businessName}</p>
-                <div>
-                    <div>{business.description}</div>
-                    <div>{business.categories}</div>
-                </div>
-                {/* <button onClick={addToCart}>Add to cart</button> */}
-            </div>
-            <h2>Our Products</h2>
+        <div className='business-products'>
+            <h2>Your Products</h2>
             <div className="flex-row">
                 {business.products.map((product) => (
                     <BusinessProductItem
                         key={product._id}
                         image={product.image}
-                        name={product.name}
+                        productName={product.productName}
                         price={product.price}
                         description={product.description}
                         quantity={product.quantity}
