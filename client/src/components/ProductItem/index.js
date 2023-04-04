@@ -60,7 +60,7 @@ function ProductItem(product) {
         <button
             disabled={savedFaveProductIds?.some((savedFaveProductId) => savedFaveProductId === id)}
             type="button"
-            className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+            className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 favorite-button"
             onClick={ () => {
               handleAddFave();
               }
