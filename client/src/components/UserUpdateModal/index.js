@@ -7,15 +7,17 @@ const UserUpdateModal = ({ isVisible, onClose }) => {
     const [formState, setFormState] = useState({
         userName: '',
         email: '',
-        password: '',
+        // password: '',
     });
-    const [updateUser, { error }] = useMutation(UPDATE_USER);
+    const [updateUser, { error }] = useMutation(UPDATE_USER, {
+
+    });
 
     // Create a variable that uses the useNavigate react function that will redirect to the called page
     const navigate = useNavigate();
     // when this function is called, redirect the page to the signup page
-    const navigateSignup = () => {
-        navigate('/signup');
+    const navigateProfile = () => {
+        navigate('/profile');
     }
     
         // EVENT HANDLER BLOCK
@@ -31,12 +33,24 @@ const UserUpdateModal = ({ isVisible, onClose }) => {
         }
     };
 
+    const updateFormSubmit = async (event) => {
+            updateUser ({
+                variables: {
+                    userName: formState.userName,
+                    email: formState.email,
+                    // password: formState.password,
+                    // confirmPassword: formState.confirmPassword,
+                },
+            });
+        }
+    
+
     // when user clicks OUTSIDE the modal, then close the modal. the div id is called wrapper.
     const handleClose = (e) => {
         if (e.target.id === 'wrapper') {
             onClose();
         }
-    }
+    };
 
     // If this prop is false, do not show the modal
     if (!isVisible) return null; 
@@ -101,9 +115,10 @@ const UserUpdateModal = ({ isVisible, onClose }) => {
                         <button
                             type="submit"
                             className='bg-orange-400 text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 mb-4'
-                            // when BUSINESS button is clicked, setIsBusiness=true so that the BUSINESS signup appears on the signup page
                             onClick ={ () => {
+                                updateFormSubmit();
                                 onClose();
+                                navigateProfile();
                                 }
                             }
                         >Submit Updates

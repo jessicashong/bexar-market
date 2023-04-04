@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Business } = require('../models');
 const { signToken } = require('../utils/auth');
-const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
@@ -95,7 +94,7 @@ const resolvers = {
 
     addFavorite: async (parent, args, context) => {
       const { productId } = args;
-      // console.log('product', productId);      
+      // console.log('product', productId);
       if (context.user) {
         const product = await Product.findById(productId);
         // console.log('id', product);
