@@ -12,7 +12,7 @@ function Profile() {
     const [showUserModal, setShowUserModal] = useState(false);
     const [showBusinessModal, setShowBusinessModal] = useState(false);
 
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // const token = Auth.loggedIn() ? Auth.getToken() : null;
     const bizId = Auth.getBusiness();
 
     let { loading, data } = useQuery(
@@ -34,7 +34,7 @@ function Profile() {
                         <h2>Hello {data.business.businessName}</h2>
                         <BusinessProductList />
                         <div>
-                        <button
+                        {/* <button
                             type="button"
                             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
                             onClick={ () => {
@@ -50,7 +50,7 @@ function Profile() {
                             setShowBusinessModal(false);
                                 }
                             }
-                        />
+                        /> */}
                         </div>
                         <div>
                             <button>Add Product</button>
@@ -60,9 +60,10 @@ function Profile() {
         : <>
         <div className='user-profile'>
         <h2>Hello, {userData.userName}!</h2>
-        <p>Favorites list coming soon!</p>
+        {/* <p>Favorites list coming soon!</p> */}
+        <UserFavoriteList />
         <div>
-        <button
+        {/* <button
             type="button"
             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
             onClick={ () => {
@@ -78,7 +79,7 @@ function Profile() {
             setShowUserModal(false);
                 }
             }
-        />
+        /> */}
         </div>
     </div></>}
     </div>
