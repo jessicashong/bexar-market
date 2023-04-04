@@ -30,8 +30,11 @@ function Profile() {
         {
             bizId ? 
             <>
-                <div>
+                <div className='business-profile'>
                         <h2>Hello {data.business.businessName}</h2>
+                        <div>
+                            <button>Add Product</button>
+                        </div>
                         <BusinessProductList />
                         <div>
                         {/* <button
@@ -51,9 +54,6 @@ function Profile() {
                                 }
                             }
                         /> */}
-                        </div>
-                        <div>
-                            <button>Add Product</button>
                         </div>
                     </div>
             </> 

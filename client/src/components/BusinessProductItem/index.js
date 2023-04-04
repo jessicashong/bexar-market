@@ -6,7 +6,7 @@ function BusinessProductItem(product) {
 
     const {
         image,
-        name,
+        productName,
         _id,
         price,
         description,
@@ -15,19 +15,16 @@ function BusinessProductItem(product) {
 
     return (
       <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
-        <img className='card-image'
-          alt={name}
-          src={`/images/${image}`}
-        />
-        <p className='card-title'>{name}</p>
-      </Link>
-      <div>
-        <div className='card-desc'>{description}</div>
-        <div className='card-price'>Price: {price}</div>
-        <div className='card-quant'>In Stock: {quantity}</div>
+      <img className='product-image'
+        alt={productName}
+        src={productImage}
+      />
+      <div className='product-info'>
+        <p>{productName}</p>
+        <div>{description}</div>
+        <span>Price: {price}</span>
+        <span>{quantity} in stock</span>
       </div>
-      {/* <button onClick={addToCart}>Add to cart</button> */}
     </div>
   );  
 }

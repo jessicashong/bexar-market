@@ -26,12 +26,8 @@ function ProductItem(product) {
         <button
             type="button"
             className="bg-orange-400 text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-            onClick={ () => {
-              setShowBusinessModal(true);
-              }
-            }
         >
-          Click to Update Credentials
+          Add to Favorites
         </button>
       </div>
     </div>
