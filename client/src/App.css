@@ -308,12 +308,16 @@ nav ul {
 }
 
 .favorite-item {
-    height: 28.5rem;
+    height: 30rem;
 }
 
 .favorite-info {
     display: flex;
     flex-direction: column;
+}
+
+.favorite-info p {
+    margin: 0;
 }
 
 .business-info {

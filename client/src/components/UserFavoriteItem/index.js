@@ -12,7 +12,7 @@ function UserFavoriteItem(product) {
 
   const {
     // image,
-    name,
+    productName,
     _id,
     price,
     description,
@@ -52,14 +52,12 @@ function UserFavoriteItem(product) {
   // React favorite product card
   return (
     <div className="card px-1 py-1 favorite-item">
-      <Link to={`/products/${_id}`}>
         <img
-          alt={name}
+          alt={productName}
           src={productImage}
         />
-        <p>{name}</p>
-      </Link>
-      <div className='favorite-info'>
+        <div className='favorite-info'>
+        <p>{productName}</p>
         <span>Price: {price}</span>
         <span>{quantity} in stock</span>
         <div>{description}</div>
