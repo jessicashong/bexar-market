@@ -18,8 +18,8 @@ class AuthService {
     return false;
   }
 
-  setBusiness(idBus) {
-    return localStorage.getItem('id_bus', idBus)
+  setBusiness(idBus){
+    return localStorage.setItem('id_bus', idBus)
   }
 
   getToken() {

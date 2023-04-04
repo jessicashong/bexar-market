@@ -111,6 +111,7 @@ nav ul {
     height: 25rem;
     margin: 2rem;
     text-align: center;
+    align-items: center;
 }
 
 .card-image {
@@ -239,6 +240,62 @@ nav ul {
     margin: 1rem
 }
 
+.business {
+    margin: 2rem;
+}
+
+.business-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.business-title img {
+    height: 15rem;
+    border-radius: 25px;
+    outline-style: solid;
+}
+
+.products {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info p {
+    font-size: 1.75rem;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image {
+    width: 15rem;
+    height: 10.9rem;
+    border-radius: 25px;
+}
+
+.business-info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.business-info p {
+    font-size: 2rem;
+}
+
+.business-desc {
+    font-size: 1.25rem;
+}
 
 @media screen and (max-width: 992px) {
     .nav-option {
