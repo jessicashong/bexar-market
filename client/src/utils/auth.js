@@ -23,7 +23,7 @@ class AuthService {
   }
   
   getBusiness(){
-    console.log('id_bus:', localStorage.getItem('id_bus'))
+    // console.log('id_bus:', localStorage.getItem('id_bus'))
     return localStorage.getItem('id_bus');
   }
 

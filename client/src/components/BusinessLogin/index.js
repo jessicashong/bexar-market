@@ -5,7 +5,9 @@ import { BUSINESS_LOGIN } from '../../utils/mutations';
 
 function BusinessLogin() {
 
+  // State variables
   const [formState, setFormState] = useState({ email: '', password: '' });
+  // Return data about BUSINESS_LOGIN mutation
   const [businessLogin, { error }] = useMutation(BUSINESS_LOGIN);
 
   // Form submit: perform mutation and pass in form data object as arguments
@@ -24,7 +26,7 @@ function BusinessLogin() {
     }
   };
 
-  // Update state based on form input
+  // When an form field is changed, update the formState
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({

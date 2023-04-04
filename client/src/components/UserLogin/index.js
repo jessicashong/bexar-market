@@ -4,10 +4,11 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 
 function UserLogin() {
-
+  // State Variables
   const [formState, setFormState] = useState({ email: '', password: '' });
+  // Return data about LOGIN mutation
   const [login, { error }] = useMutation(LOGIN);
-  // Submit Form
+  // Form submit: perform mutation and pass in form data object as arguments
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -22,16 +23,16 @@ function UserLogin() {
     }
   };
 
-  // update state based on form input changes
+  // When an form field is changed, update the formState
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // Clear form values
     setFormState({
       ...formState,
       [name]: value,
     });
   };
 
+  // React User Login form
   return (
     <div className="container my-5 mx-auto flex flex-col items-center mb-10 login-form">
       <h2 className='text-2xl mt-5'>User Login</h2>
@@ -73,7 +74,6 @@ function UserLogin() {
       </form>
     </div>
   )
-
 };
 
 export default UserLogin;

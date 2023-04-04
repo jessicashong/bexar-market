@@ -4,16 +4,10 @@ import { QUERY_ME } from '../../utils/queries';
 import UserFavoriteItem from "../UserFavoriteItem"
 
 function UserFavoriteList() {
-
+    // Return data about QUERY_ME mutation
     const { loading, data } = useQuery(QUERY_ME);
-    // Chaining to check if data exists otherwise return empty array
-    // const user = data?.user || [];
-    // console.log("userfavlist:", user)
-    
-    if (!loading) {
-        console.log("userfavlistdata:", data)
-    }
-    // console.log("userdata:", user.me.favorites)
+
+    // React container to map over mulitple products in favorites array
     return (loading ? <div>Loading data...</div> : (
         <div className='favorite-group'>
             <h2>Your Favorited Products</h2>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Button } from "@material-tailwind/react";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
@@ -10,13 +9,15 @@ var categories = ['leather', 'woodworking', 'jewelry', 'textiles'];
 
 function UserSignup({ isBusiness }) {
 
-    // STATE VARIABLES
+    // State variables
     const [formState, setFormState] = useState({ userName: '', email: '', password: '', confirmPassword: '' });
+    // Return data about ADD_USER mutation
     const [addUser] = useMutation(ADD_USER);
 
+    // Perform mutation and pass in form data object as arguments
     const handleSubmit = async (event) => {
         // event.preventDefault(event);
-        const addUserResponse = await addUser ({
+        const addUserResponse = await addUser({
             variables: {
                 userName: formState.userName,
                 email: formState.email,
@@ -29,7 +30,6 @@ function UserSignup({ isBusiness }) {
         console.log("FORM SUBMITTED")
     }
 
-    // EVENT HANDLER BLOCK
     // When an form field is changed, update the formState
     const handleFormChange = (event) => {
         const { name, value } = event.target;
@@ -37,8 +37,9 @@ function UserSignup({ isBusiness }) {
             ...formState,
             [name]: value,
         });
-        };
+    };
 
+    // React User Signup Form
     return (
         <>
             <div className="bg-grey-lighter flex flex-col m-5 signup-form">
@@ -49,37 +50,34 @@ function UserSignup({ isBusiness }) {
                         <h1 className="mb-8 text-3xl text-center">Create User Account</h1>
                         <div className='flex flex-col border border-grey-light p-3 rounded mb-4'>
                             {/* Require these inputs!! */}
-                            <input 
+                            <input
                                 type="text"
                                 className="form-input block border border-grey-light w-full p-3 rounded mb-4"
                                 name="userName"
-                                placeholder="Username" 
+                                placeholder="Username"
                                 onChange={handleFormChange}
                             />
-
-                            <input 
+                            <input
                                 type="email"
                                 className="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="email"
-                                placeholder="user@email" 
+                                placeholder="user@email"
                                 onChange={handleFormChange}
                             />
-
-                            <input 
+                            <input
                                 type="password"
                                 className="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="password"
-                                placeholder="Password" 
+                                placeholder="Password"
                                 onChange={handleFormChange}
                             />
-                            <input 
+                            <input
                                 type="password"
                                 className="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="confirmPassword"
-                                placeholder="Confirm Password" 
+                                placeholder="Confirm Password"
                                 onChange={handleFormChange}
                             />
-
                             {/* loops through the categories array to create checkbox */}
                             <div className='block border border-grey-light w-full p-3 rounded mb-4'>
                                 <h3 className="italic text-center mb-4">Optional: What categories are you interested in?</h3>
@@ -99,18 +97,17 @@ function UserSignup({ isBusiness }) {
                                                 htmlFor="checkboxDefault">
                                                 {categoryName}
                                             </label>
-                                        </div> 
+                                        </div>
                                     );
                                 })}
                             </div>
                         </div>
-                        
                         <div>
                             <button
                                 type="button"
                                 className="bg-orange-400 w-full text-center p-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                                onClick ={handleSubmit}>
-                                    Submit User Account
+                                onClick={handleSubmit}>
+                                Submit User Account
                             </button>
                         </div>
                     </form>

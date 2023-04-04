@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import productImage from "../../assets/product.png"
 
 function BusinessProductItem(product) {
 
   const {
-    image,
+    // image,
     productName,
-    _id,
+    // _id,
     price,
     description,
     quantity

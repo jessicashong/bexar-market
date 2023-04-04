@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Future v2 development
 function Search() {
     return (
         <div className="search">

@@ -15,33 +15,32 @@ function About() {
                         <a
                             href="https://chloeeh.github.io/hanks-react-portfolio/"
                         >
-                        <p>Chloe Hanks</p>
+                            <p>Chloe Hanks</p>
                         </a>
                     </li>
                     <li className='portfolio-card'>
                         <a
                             href="https://jessicashong.github.io/react-portfolio/"
                         >
-                        <p>Jessica Hong</p>
+                            <p>Jessica Hong</p>
                         </a>
                     </li>
                     <li className='portfolio-card'>
                         <a
                             href="https://ldudrey.github.io/portfolio-v2/"
                         >
-                        <p>Lydia Dudrey</p>
+                            <p>Lydia Dudrey</p>
                         </a>
                     </li>
                     <li className='portfolio-card'>
                         <a
                             href="https://mdinkelbach.github.io/portfolio-resume/"
                         >
-                        <p>Michael Dinkelbach</p>
+                            <p>Michael Dinkelbach</p>
                         </a>
                     </li>
                 </ul>
             </div>
-            
         </div>
     )
 }
