@@ -14,7 +14,7 @@ function BusinessList() {
   }
   return (
     <div className='business-container'>
-      <h2>Bexar Market Busniesses</h2>
+      <h2>Bexar Market Businesses</h2>
         <div className="business-list">
           {businesses.map((business) => (
             <Business

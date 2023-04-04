@@ -43,7 +43,7 @@ This project demonstrates to prospective employers collaborative skills and codi
 * Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 ```
 
-<img src="./assets/[image of the modal" alt="Bexar Market Home Page"] width="400"/>
+<img src="./client/src/assets/home.png" alt="Bexar Market Home Page" width="400"/>
 
 ## Installation
 
@@ -63,24 +63,32 @@ From the root folder:
 
 2. If you have not signed up, navigate to the signup page. For future development, if a person opts to signup as a user, then the business form will be disabled (and vice versa). If you already have an account, navigate to the login page.
 
-<img src="./assets/[image of the modal]" alt="Signup Modal" width="400"/>
+<img src="./client/src/assets/signupModal.png" alt="Signup Modal" width="400"/>
 
-<img src="./assets/[image of the signup page]" alt="Signup Page" width="400"/>
+<img src="./client/src/assets/signupUser.png" alt="User Signup Page" width="400"/>
 
-<img src="./assets/[image of the login page]" alt="Login Page" width="400"/>
+<img src="./client/src/assets/signupBusiness.png" alt="Business Signup Page" width="400"/>
 
-<img src="./assets/[image of the Profile Page]" alt="Profile Page"width="400"/>
+<img src="./client/src/assets/login.png" alt="Login Page" width="400"/>
 
 
 3. Use the links in the navigation to view the About page to see the mission statement, or click the Home page to view the list of participating business.
 
-<img src="./assets/[image of the About page]" alt="About Page" width="400"/>
+<img src="./client/src/assets/about.png" alt="About Page" width="400"/>
 
-<img src="./assets/[image of the Home page]" alt="Home Page" width="400"/>
+<img src="./client/src/assets/home.png" alt="Home Page" width="400"/>
 
 4. Click on a business to view their available products.
 
-<img src="./assets/[image of a business page]" alt="Business Page" width="400"/>
+<img src="./client/src/assets/businessPage.png" alt="Business Page" width="400"/>
+
+5. Click on Profile to view your personal profile page. You can update your credentials here.
+
+<img src="./client/src/assets/profile.png" alt="Business Page" width="400"/>
+
+<img src="./client/src/assets/updateUser.png" alt="Business Page" width="400"/>
+
+
 
 
 ## Credits:
@@ -91,3 +99,4 @@ From the root folder:
 5) [React: Passing props to function components](https://stackoverflow.com/questions/39963565/react-passing-props-to-function-components/59540647#59540647)
 6) [Redirect to another page using useNavigate()](https://bobbyhadz.com/blog/react-onclick-redirect)
 7) [Logo design by dgim-studio](http://www.freepik.com) 
+8) [The create-react-app imports restriction outside of sec directory](https://stackoverflow.com/questions/44114436/the-create-react-app-imports-restriction-outside-of-src-directory)
