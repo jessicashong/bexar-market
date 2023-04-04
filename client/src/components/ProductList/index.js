@@ -26,7 +26,7 @@ const ProductList = () => {
         <div className='business'>
             <div className="business-title">
                 <div>
-                <img product 
+                <img 
                     alt={business.businessName}
                     src={businessImage}
                 />
@@ -47,6 +47,7 @@ const ProductList = () => {
                 {business?.products?.map((product) => (
                     <ProductItem
                         key={product._id}
+                        id={product._id}
                         image={productImage}
                         productName={product.productName}
                         price={product.price}

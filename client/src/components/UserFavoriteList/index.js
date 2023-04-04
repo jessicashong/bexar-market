@@ -5,35 +5,33 @@ import UserFavoriteItem from "../UserFavoriteItem"
 
 function UserFavoriteList() {
 
-    const { data } = useQuery(QUERY_ME);
-    console.log("userfavlistdata:", data)
-    let user;
+    const { loading, data } = useQuery(QUERY_ME);
     // Chaining to check if data exists otherwise return empty array
     // const user = data?.user || [];
     // console.log("userfavlist:", user)
-
-    if (data) {
-        user = data;
+    
+    if (!loading) {
+        console.log("userfavlistdata:", data)
     }
     // console.log("userdata:", user.me.favorites)
-    return (
+    return (loading ? <div>Loading data...</div> : (
         <div>
             <h2>Your Favorited Products</h2>
             <div className="flex-row">
-                {user.me.favorites.map((product) => (
+                {data.me.favorites?.map((favorite, index) => (
                     <UserFavoriteItem
-                        key={product._id}
-                        _id={product._id}
-                        image={product.image}
-                        name={product.name}
-                        price={product.price}
-                        description={product.description}
-                        quantity={product.quantity}
+                        key={favorite._id}
+                        _id={favorite._id}
+                        image={favorite.image}
+                        productName={favorite.productName}
+                        price={favorite.price}
+                        description={favorite.description}
+                        quantity={favorite.quantity}
                     />
                 ))}
             </div>
         </div>
-    );
+    ));
 }
 
 export default UserFavoriteList;

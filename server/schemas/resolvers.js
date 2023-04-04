@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Business } = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
@@ -92,11 +93,14 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in as a business.');
     },
 
-    addFavorite: async (parent, { productId }, context) => {
+    addFavorite: async (parent, args, context) => {
+      const { productId } = args;
+      // console.log('product', productId);      
       if (context.user) {
         const product = await Product.findById(productId);
+        // console.log('id', product);
         const favorites = await User.findByIdAndUpdate(context.user._id,
-          { $addToSet: { favorites: product } });
+          { $addToSet: { favorites: product } }, { new: true });
         return favorites;
       }
       throw new AuthenticationError('You must be logged in.');

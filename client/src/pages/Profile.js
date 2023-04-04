@@ -15,7 +15,7 @@ function Profile() {
     // const token = Auth.loggedIn() ? Auth.getToken() : null;
     const bizId = Auth.getBusiness();
 
-    let { loading, data } = useQuery(
+    const { loading, data } = useQuery(
         bizId ? QUERY_BUSINESS : QUERY_ME, {
         variables: bizId ? { id: bizId } : {}
     });
