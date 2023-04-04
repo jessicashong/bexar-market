@@ -82,8 +82,7 @@ db.once('open', async () => {
     image: 'logo.jpg',
     category: categories[2]._id,
     products: [products[2]],
-  },
-  ),
+  }),
 
   await Business.create({
     email: 'scrappy@email.com',
@@ -93,8 +92,7 @@ db.once('open', async () => {
     image: 'logo.jpg',
     category: categories[3]._id,
     products: [products[3]],
-  },
-  );
+  });
   console.log('businesses seeded');
 
   await User.deleteMany();

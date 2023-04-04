@@ -8,6 +8,7 @@ function BusinessLogin() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [businessLogin, { error }] = useMutation(BUSINESS_LOGIN);
 
+  // Form submit: perform mutation and pass in form data object as arguments
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -23,16 +24,16 @@ function BusinessLogin() {
     }
   };
 
-  // update state based on form input changes
+  // Update state based on form input
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // Clear form values
     setFormState({
       ...formState,
       [name]: value,
     });
   };
 
+  // React Business Login form
   return (
     <div className="container my-5 mx-auto flex flex-col items-center mb-10 login-form">
       <h2 className='text-2xl mt-5'>Business Login</h2>
@@ -75,7 +76,6 @@ function BusinessLogin() {
       </form >
     </div >
   )
-
 };
 
 export default BusinessLogin;

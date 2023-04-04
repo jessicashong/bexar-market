@@ -94,10 +94,9 @@ const resolvers = {
 
     addFavorite: async (parent, args, context) => {
       const { productId } = args;
-      // console.log('product', productId);
+
       if (context.user) {
         const product = await Product.findById(productId);
-        // console.log('id', product);
         const favorites = await User.findByIdAndUpdate(context.user._id,
           { $addToSet: { favorites: product } }, { new: true });
         return favorites;
@@ -109,7 +108,7 @@ const resolvers = {
       if (context.user) {
         const delfavorites = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull:  { favorites: { _id:  productId } } },
+          { $pull: { favorites: { _id: productId } } },
           { new: true, runValidators: true }
         );
         return delfavorites;

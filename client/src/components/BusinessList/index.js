@@ -9,9 +9,11 @@ function BusinessList() {
   // Chaining to check if data exists otherwise return empty array
   const businesses = data?.businesses || [];
 
+  // Give time for data to load
   if(loading) {
     return <div>Loading...</div>
   }
+  // React container to map over mulitple businesses in array
   return (
     <div className='business-container'>
       <h2>Bexar Market Businesses</h2>
