@@ -292,6 +292,30 @@ nav ul {
     border-radius: 25px;
 }
 
+.favorite-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+}
+
+.favorite-group-items {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.favorite-item {
+    height: 28.5rem;
+}
+
+.favorite-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .business-info {
     display: flex;
     flex-grow: 1;

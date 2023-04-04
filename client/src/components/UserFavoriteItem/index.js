@@ -5,6 +5,7 @@ import { DELETE_FAVORITE } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { useMutation, useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
+import productImage from "../../assets/product.png"
 
 
 function UserFavoriteItem(product) {
@@ -51,15 +52,15 @@ function UserFavoriteItem(product) {
   };
 
     return (
-        <div className="card px-1 py-1">
+        <div className="card px-1 py-1 favorite-item">
           <Link to={`/products/${_id}`}>
             <img
               alt={name}
-              src={`/images/${image}`}
+              src={productImage}
             />
             <p>{name}</p>
           </Link>
-          <div>
+          <div className='favorite-info'>
             <span>Price: {price}</span>
             <span>{quantity} in stock</span>
             <div>{description}</div>
